@@ -46,13 +46,11 @@ Build
 
 Run with single swagger file
 
-`autorest-beta --use:"C:\github_fork\autorest.java" --java --input-file:"C:\github\autorest.testserver\swagger\body-string.json" --output-folder:"tests" --namespace:fixtures.bodystring`
+`autorest-beta --use:"C:/github_fork/autorest.java" --java --input-file:"C:/github/autorest.testserver/swagger/body-string.json" --output-folder:"tests" --namespace:fixtures.bodystring --sync-methods=all`
 
-Run with swagger for fluent lite (initial test, not final)
+Run with swagger for fluent (initial test, not final)
 
-Run under e.g. `azure-rest-api-specs/specification/redis/resource-manager`
-
-`autorest-beta --use="C:\github_fork\autorest.java" --java --azure-arm=true --fluent=true --license-header=MICROSOFT_MIT_NO_CODEGEN --multiapi=true --output-folder=v4`
+`autorest-beta --input-file="C:/github/azure-rest-api-specs/specification/resources/resource-manager/Microsoft.Resources/stable/2019-08-01/resources.json" --namespace="com.microsoft.azure.management.resources" --use="C:/github_fork/autorest.java" --java --azure-arm=true --fluent=true --sync-methods=all --license-header=MICROSOFT_MIT_NO_CODEGEN  --output-folder=v5`
 
 ## autorest pipeline ##
 
