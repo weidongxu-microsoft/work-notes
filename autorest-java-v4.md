@@ -1,5 +1,19 @@
 ## Components ##
 
+### azure.core ###
+
+Repo
+
+https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/core
+
+Build
+
+./eng/code-quality-reports
+`mvn install`
+
+./sdk/core
+`mvn -DskipTests=true -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip -f pom.service.xml -pl azure-core,azure-core-http-netty -am install`
+
 ### autorest.core v3 ###
 
 Repo
