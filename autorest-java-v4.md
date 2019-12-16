@@ -1,21 +1,5 @@
 ## Components ##
 
-### azure.core ###
-
-Repo
-
-https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/core
-
-Build
-
-./eng/code-quality-reports
-
-`mvn install`
-
-./sdk/core
-
-`mvn -DskipTests=true -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip -f pom.service.xml -pl azure-core,azure-core-http-netty -am install`
-
 ### autorest.core v3 ###
 
 Repo
@@ -115,12 +99,18 @@ codeModel -> clientModel -> JAVA code
 
 We suppose to add a `fluentgen` (parallel to `javagen`) to generate Fluent Lite/Premium JAVA code.
 
-### Current Status ###
+### azure.core ###
 
-modelerfour is not finished and may not be stable yet.
+Repo
 
-Still working on vanila and azure-arm. I think short-term goal is generating comparable featured JAVA code as autorest.java v3.
+https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/core
 
-Some minor feature in vanila is missing. LRO and Paging seems not finished.
+Build
 
-Long-term goal is design for fluentgen, and implement it.
+./eng/code-quality-reports
+
+`mvn install`
+
+./sdk/core
+
+`mvn -DskipTests=true -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip -f pom.service.xml -pl azure-core,azure-core-http-netty -am install`
