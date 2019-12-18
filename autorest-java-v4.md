@@ -38,8 +38,6 @@ Repo
 
 https://github.com/Azure/autorest.java/tree/v4, branch `v4`.
 
-
-
 Input from modelerfour.
 
 Build
@@ -49,6 +47,12 @@ Build
 Run with single swagger file
 
 `autorest-beta --use:"C:/github_fork/autorest.java" --java --input-file:"C:/github/autorest.testserver/swagger/body-string.json" --output-folder:"tests" --namespace:fixtures.bodystring --sync-methods=all`
+
+Temporary Fluent Repo
+
+https://github.com/weidongxu-microsoft/autorest.java/tree/v4_fluentgen
+
+With `fluentgen` module.
 
 Run with swagger for fluent (initial test, not final)
 
