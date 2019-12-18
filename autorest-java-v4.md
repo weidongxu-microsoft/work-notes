@@ -56,7 +56,7 @@ With `fluentgen` module.
 
 Run with swagger for fluent (initial test, not final)
 
-`autorest-beta --input-file="C:/github/azure-rest-api-specs/specification/resources/resource-manager/Microsoft.Resources/stable/2019-08-01/resources.json" --namespace="com.azure.management.resources" --use="C:/github_fork/autorest.java/fluentgen" --java --azure-arm=true --fluent=true --sync-methods=all --license-header=MICROSOFT_MIT_NO_CODEGEN --output-folder=v4`
+`autorest-beta --input-file="C:/github/azure-rest-api-specs/specification/resources/resource-manager/Microsoft.Resources/stable/2019-08-01/resources.json" --namespace="com.azure.management.resources" --use="C:/github_fork/autorest.java/fluentgen" --java --azure-arm=true --fluent=true --generate-client-as-impl=true --sync-methods=all --license-header=MICROSOFT_MIT_NO_CODEGEN --output-folder=v4`
 
 ## autorest pipeline ##
 
