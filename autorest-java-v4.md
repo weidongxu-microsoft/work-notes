@@ -1,4 +1,4 @@
-## Components ##
+## Autorest Components ##
 
 ### autorest.core v3 ###
 
@@ -21,6 +21,8 @@ Useful parameters
 `--interactive` show UI with pipeline graph, and related input/output.
 
 `--debugger` pause for debugger be attached.
+
+`--version=` fall back to looking at github for specific version.
 
 Output is json format.
 
@@ -74,6 +76,22 @@ Run under autorest.java
 
 Possible new test server https://github.com/Azure/autorest.test-server
 
+## Azure Core ##
+
+Repo
+
+https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/core
+
+Build
+
+Under `./eng/code-quality-reports`
+
+`mvn install`
+
+Under `./sdk/core`
+
+`mvn -DskipTests=true -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip -f pom.service.xml -pl azure-core,azure-core-http-netty -am install`
+
 ## Detail on Autorest.java v4 ##
 
 ### Configuration ###
@@ -103,20 +121,4 @@ codeModel -> clientModel -> JAVA code
 
 ### Fluent ###
 
-We suppose to add a `fluentgen` (parallel to `javagen`) to generate Fluent Lite/Premium JAVA code.
-
-### azure.core ###
-
-Repo
-
-https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/core
-
-Build
-
-./eng/code-quality-reports
-
-`mvn install`
-
-./sdk/core
-
-`mvn -DskipTests=true -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip -f pom.service.xml -pl azure-core,azure-core-http-netty -am install`
+`fluentgen` (parallel to `javagen`) to generate Fluent Lite/Premium JAVA code.
