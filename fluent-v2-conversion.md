@@ -30,7 +30,7 @@ Overall build might not work. But build/run single test case within a successful
 
 ### 1. Update api-spec.json ###
 
-Change `package` to e.g. `com.azure.management.resources` (without microsoft in namespace)
+Change `package` to e.g. `com.azure.management.resources` (without microsoft in namespace).
 
 Optionally, add to `args`.
 `--add-inner=Class` if you want some class be named as FooInner.
@@ -46,7 +46,7 @@ Since there is local processing for README.md, SPEC_ROOT must be a local folder.
 
 Note `./fluentgen` under AUROREST_JAVA_ROOT.
 
-# General notes #
+# Migrate notes #
 
 ### Async types ###
 
