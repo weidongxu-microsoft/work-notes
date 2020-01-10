@@ -131,6 +131,8 @@ index 010f7492a8..3c43449258 100644
  }
 ```
 
+Also check `sdk/core/azure-core-management/pom.xml` for beta version update on azure-core, azure-core-test, and azure-core-http-netty.
+
 Build
 
 Under `./sdk/core/azure-core-management`
