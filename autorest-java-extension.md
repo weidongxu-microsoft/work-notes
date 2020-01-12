@@ -26,6 +26,8 @@ List -> ListByResourceGroup
 
 Resource, SubResource, ProxyResource
 
+Move other properties to subclass.
+
 ### x-ms-odata for $filter
 
 ? Not enabled.
