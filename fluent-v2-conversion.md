@@ -64,4 +64,4 @@ Use `getFoo` or `isFoo`.
 
 # Reference #
 
-https://github.com/weidongxu-microsoft/work-notes/blob/master/autorest-java-v4.md#autorestcore-v3
+https://github.com/weidongxu-microsoft/work-notes/blob/master/autorest-java-v4.md
