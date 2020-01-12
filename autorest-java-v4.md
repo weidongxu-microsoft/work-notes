@@ -139,7 +139,7 @@ Under `./sdk/core/azure-core-management`
 
 `mvn -DskipTests=true -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip install`
 
-## Detail on Autorest.java v4 ##
+## Detail on autorest.java v4 ##
 
 ### Configuration ###
 
