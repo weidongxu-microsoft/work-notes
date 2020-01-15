@@ -12,6 +12,8 @@ Update autorest.core
 
 Checkout branch https://github.com/weidongxu-microsoft/autorest.java/tree/v4_fluentgen
 
+At present, branch `v4_fluentgen_lro` has experiential implementation on LRO support.
+
 Build
 
 `mvn package -Dlocal`
