@@ -90,11 +90,11 @@ Under `./eng/code-quality-reports`
 
 Under `./sdk/core`
 
-`mvn -DskipTests=true -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip -f pom.service.xml -pl azure-core,azure-core-http-netty -am install`
+`mvn -DskipTests=true -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip -Drevapi.skip -f pom.service.xml -pl azure-core,azure-core-http-netty -am install`
 
 Under `./sdk/identity`
 
-`mvn -DskipTests=true -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip -f pom.service.xml install`
+`mvn -DskipTests=true -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip -Drevapi.skip -f pom.service.xml install`
 
 ## Azure Core Management ##
 
