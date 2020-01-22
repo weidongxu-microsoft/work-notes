@@ -96,6 +96,10 @@ Under `./sdk/identity`
 
 `mvn -DskipTests=true -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip -Drevapi.skip -f pom.service.xml install`
 
+Under `./sdk/keyvault`
+
+`mvn -DskipTests=true -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip -Drevapi.skip -f pom.service.xml install`
+
 ## Azure Core Management
 
 Branch on Draft PR https://github.com/Azure/azure-sdk-for-java/pull/6303
