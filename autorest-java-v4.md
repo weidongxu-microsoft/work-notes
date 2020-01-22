@@ -1,6 +1,6 @@
-## Autorest Components ##
+## Autorest Components
 
-### autorest.core v3 ###
+### autorest.core v3
 
 Repo
 
@@ -26,7 +26,7 @@ Useful parameters
 
 Output is json format.
 
-### modelerfour ###
+### modelerfour
 
 Repo
 
@@ -34,7 +34,7 @@ https://github.com/Azure/autorest.modelerfour
 
 Input from autorest.core v3. Output is yaml format.
 
-### autorest.java v4 ###
+### autorest.java v4
 
 Repo
 
@@ -60,11 +60,11 @@ Run with swagger for fluent (initial test, not final)
 
 `autorest-beta --input-file="C:/github/azure-rest-api-specs/specification/resources/resource-manager/Microsoft.Resources/stable/2019-08-01/resources.json" --namespace="com.azure.management.resources" --use="C:/github_fork/autorest.java/fluentgen" --java --azure-arm=true --fluent=true --generate-client-as-impl=true --sync-methods=all --license-header=MICROSOFT_MIT_NO_CODEGEN --output-folder=v4`
 
-## autorest pipeline ##
+## autorest pipeline
 
 autorest.core v3 -> modelerfour -> autorest.java v4
 
-## Legacy test server ##
+## Legacy test server
 
 Repo
 
@@ -76,7 +76,7 @@ Run under autorest.java
 
 Possible new test server https://github.com/Azure/autorest.test-server
 
-## Azure Core ##
+## Azure Core
 
 Repo
 
@@ -96,7 +96,7 @@ Under `./sdk/identity`
 
 `mvn -DskipTests=true -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip -Drevapi.skip -f pom.service.xml install`
 
-## Azure Core Management ##
+## Azure Core Management
 
 Branch on Draft PR https://github.com/Azure/azure-sdk-for-java/pull/6303
 
@@ -139,17 +139,17 @@ Under `./sdk/core/azure-core-management`
 
 `mvn -DskipTests=true -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip install`
 
-## Detail on autorest.java v4 ##
+## Detail on autorest.java v4
 
-### Configuration ###
+### Configuration
 
 `readme.md` dependency and pipeline
 
-### Flow within Javagen ###
+### Flow within Javagen
 
 codeModel -> clientModel -> JAVA code
 
-### Modules ###
+### Modules
 
 `extension-base`
 - `jsonrpc` JSON-RPC, the communication pipeline with autorest.core. `ListInputs`, `ReadValue`, `Message`, `WriteFile`, `ReadFile`.
@@ -166,6 +166,6 @@ codeModel -> clientModel -> JAVA code
 
 `Javagen.java` entry point.
 
-### Fluent ###
+### Fluent 
 
 `fluentgen` (parallel to `javagen`) to generate Fluent Lite/Premium JAVA code.
