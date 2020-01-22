@@ -102,46 +102,13 @@ Under `./sdk/keyvault`
 
 ## Azure Core Management
 
-Branch on Draft PR https://github.com/Azure/azure-sdk-for-java/pull/6303
-
-Checkout https://github.com/anuchandy/azure-sdk-for-java/tree/mgmt-poller
-
-Modify 2 files
-
-```
-diff --git a/sdk/core/azure-core-management/src/main/java/com/azure/core/management/implementation/polling/PollerFactory.java b/sdk/core/azure-core-management/src/main/java/com/azure/core/management/implementation/polling/PollerFactory.javaindex b4865caf14..9ad9116249 100644
---- a/sdk/core/azure-core-management/src/main/java/com/azure/core/management/implementation/polling/PollerFactory.java
-+++ b/sdk/core/azure-core-management/src/main/java/com/azure/core/management/implementation/polling/PollerFactory.java
-@@ -252,6 +252,7 @@ public final class PollerFactory {
-      * @param <U> the type to decode to
-      * @return decoded value
-      */
-+    @SuppressWarnings("unchecked")
-     private static <U> U deserialize(SerializerAdapter serializerAdapter, String value, Type type) {
-         if (value == null || value.equalsIgnoreCase("")) {
-             logger.info("Ignoring decoding of null or empty value to:" + type.getTypeName());
-diff --git a/sdk/core/azure-core-management/src/main/java/module-info.java b/sdk/core/azure-core-management/src/main/java/module-info.java
-index 010f7492a8..3c43449258 100644
---- a/sdk/core/azure-core-management/src/main/java/module-info.java
-+++ b/sdk/core/azure-core-management/src/main/java/module-info.java
-@@ -6,7 +6,7 @@ module com.azure.core.management {
-     requires org.reactivestreams;
-
-     opens com.azure.core.management to com.fasterxml.jackson.databind;
--    opens com.azure.core.management.implementation to com.fasterxml.jackson.databind;
-+    opens com.azure.core.management.implementation.polling to com.fasterxml.jackson.databind;
-
-     uses com.azure.core.http.HttpClientProvider;
- }
-```
-
-Also check `sdk/core/azure-core-management/pom.xml` for beta version update on azure-core, azure-core-test, and azure-core-http-netty.
+Checkout https://github.com/yaohaizh/azure-sdk-for-java/tree/mgmt-poller
 
 Build
 
 Under `./sdk/core/azure-core-management`
 
-`mvn -DskipTests=true -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip install`
+`mvn -DskipTests=true -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip -Drevapi.skip install`
 
 ## Detail on autorest.java v4
 
