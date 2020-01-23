@@ -82,6 +82,8 @@ Example:
 getByIdAsync(id).map(this::WrapModel)
 
 createOrUpdateAsync(param).then(Mono.fromCallable(() -> { cleanUp(); return this; }))
+
+getByNameAsync(name).then(...).switchIfEmpty(Mono.error(...))
 ```
 
 ### Properties
