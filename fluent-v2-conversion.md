@@ -76,8 +76,6 @@ Mono.fromCallable
 Mono.defer
 ```
 
-`mapPage` for `PagedFlux`
-
 Example:
 
 ```
