@@ -52,6 +52,8 @@ Note `./fluentgen` under AUROREST_JAVA_ROOT.
 
 ### Async types
 
+#### Reactor does not allow `null` in stream
+
 `Observable` -> `Mono`
 
 `Observable` (result of list) -> `PagedFlux`
@@ -60,9 +62,19 @@ Note `./fluentgen` under AUROREST_JAVA_ROOT.
 
 Async to sync: `.block()` for single or `new PagedIterable<>(...)` for collection.
 
+#### Common Reactor method
+
+```
+map
+flatMap
+then
+
+mapPage
+```
+
 ### Properties
 
-Use `getFoo` or `isFoo`.
+(Not finalized) Use `getFoo` or `isFoo`.
 
 # Reference
 
