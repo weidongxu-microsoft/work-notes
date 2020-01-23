@@ -68,8 +68,22 @@ Async to sync: `.block()` for single or `new PagedIterable<>(...)` for collectio
 map
 flatMap
 then
+switchIfEmpty
 
-mapPage
+Mono.error
+Mono.just
+Mono.fromCallable
+Mono.defer
+```
+
+`mapPage` for `PagedFlux`
+
+Example:
+
+```
+getByIdAsync(id).map(this::WrapModel)
+
+createOrUpdateAsync(param).then(Mono.fromCallable(() -> { cleanUp(); return this; }))
 ```
 
 ### Properties
