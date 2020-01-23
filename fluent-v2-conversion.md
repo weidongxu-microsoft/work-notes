@@ -76,7 +76,7 @@ Mono.fromCallable
 Mono.defer
 ```
 
-Example:
+#### Example
 
 ```
 getByIdAsync(id).map(this::WrapModel)
