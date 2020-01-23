@@ -42,7 +42,7 @@ Optionally, add to `args`.
 
 Generate code
 
-`gulp codegen --projects {SERVICE} --spec-root={SPEC_ROOT} --autorest-java={AUROREST_JAVA_ROOT}/fluentgen`
+`gulp codegen --autorest {VERSION} --projects {SERVICE} --spec-root={SPEC_ROOT} --autorest-java={AUROREST_JAVA_ROOT}/fluentgen`
 
 Since there is local processing for README.md, SPEC_ROOT must be a local folder.
 
