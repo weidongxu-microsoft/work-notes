@@ -6,7 +6,7 @@
 
 Update autorest.core
 
-`autorest-beta --version=3.0.6189`
+`autorest-beta --version=3.0.6197`
 
 ### Build autorest.java v4 fluentgen
 
