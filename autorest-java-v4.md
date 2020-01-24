@@ -56,10 +56,6 @@ https://github.com/weidongxu-microsoft/autorest.java/tree/v4_fluentgen
 
 With `fluentgen` module.
 
-Run with swagger for fluent (initial test, not final)
-
-`autorest-beta --input-file="C:/github/azure-rest-api-specs/specification/resources/resource-manager/Microsoft.Resources/stable/2019-08-01/resources.json" --namespace="com.azure.management.resources" --use="C:/github_fork/autorest.java/fluentgen" --java --azure-arm=true --fluent=true --generate-client-as-impl=true --sync-methods=all --license-header=MICROSOFT_MIT_NO_CODEGEN --output-folder=v4`
-
 ## autorest pipeline
 
 autorest.core v3 -> modelerfour -> autorest.java v4
@@ -90,15 +86,15 @@ Under `./eng/code-quality-reports`
 
 Under `./sdk/core`
 
-`mvn -DskipTests=true -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip -Drevapi.skip -f pom.service.xml -pl azure-core,azure-core-http-netty -am install`
+`mvn -DskipTests -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip -Drevapi.skip -f pom.service.xml -pl azure-core,azure-core-http-netty -am install`
 
 Under `./sdk/identity`
 
-`mvn -DskipTests=true -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip -Drevapi.skip -f pom.service.xml install`
+`mvn -DskipTests -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip -Drevapi.skip -f pom.service.xml install`
 
 Under `./sdk/keyvault`
 
-`mvn -DskipTests=true -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip -Drevapi.skip -f pom.service.xml install`
+`mvn -DskipTests -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip -Drevapi.skip -f pom.service.xml install`
 
 ## Azure Core Management
 
@@ -108,7 +104,7 @@ Build
 
 Under `./sdk/core/azure-core-management`
 
-`mvn -DskipTests=true -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip -Drevapi.skip install`
+`mvn -DskipTests -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip -Drevapi.skip install`
 
 ## Detail on autorest.java v4
 
