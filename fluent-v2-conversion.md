@@ -88,7 +88,7 @@ getByNameAsync(name).then(...).switchIfEmpty(Mono.error(...))
 
 Read [Reactor Core Features](https://projectreactor.io/docs/core/release/reference/#core-features)
 
-And optionally [Reactor Core Features](https://projectreactor.io/docs/core/release/reference/#advanced)
+Optionally, also [Reactor Core Features](https://projectreactor.io/docs/core/release/reference/#advanced)
 
 # Reference
 
