@@ -88,6 +88,8 @@ getByNameAsync(name).then(...).switchIfEmpty(Mono.error(...))
 
 Read [Reactor Core Features](https://projectreactor.io/docs/core/release/reference/#core-features)
 
+And optionally [Reactor Core Features](https://projectreactor.io/docs/core/release/reference/#advanced)
+
 # Reference
 
 https://github.com/weidongxu-microsoft/work-notes/blob/master/autorest-java-v4.md
