@@ -69,6 +69,7 @@ map
 flatMap
 then
 switchIfEmpty
+onErrorResume
 
 Mono.error
 Mono.just
