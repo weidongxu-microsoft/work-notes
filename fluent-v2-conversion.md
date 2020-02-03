@@ -84,7 +84,7 @@ getByIdAsync(id).map(this::WrapModel)
 
 createOrUpdateAsync(param).then(Mono.fromCallable(() -> { cleanUp(); return this; }))
 
-getByNameAsync(name).then(...).switchIfEmpty(Mono.error(...))
+getByNameAsync(name).onErrorResume(...).switchIfEmpty(Mono.error(...))
 ```
 
 Read [Reactor Core Features](https://projectreactor.io/docs/core/release/reference/#core-features)
