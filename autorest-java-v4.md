@@ -74,7 +74,7 @@ Possible new test server https://github.com/Azure/autorest.test-server
 
 ## Azure Core
 
-Repo
+Repo (use Azure Core Managemen branch for now)
 
 https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/core
 
@@ -84,13 +84,19 @@ Under `./eng/code-quality-reports`
 
 `mvn install`
 
+Build core
+
 Under `./sdk/core`
 
 `mvn -DskipTests -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip -Drevapi.skip -f pom.service.xml -pl azure-core,azure-core-http-netty -am install`
 
+Build identity
+
 Under `./sdk/identity`
 
 `mvn -DskipTests -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip -Drevapi.skip -f pom.service.xml install`
+
+Build keyvault (not needed for now)
 
 Under `./sdk/keyvault`
 
