@@ -60,6 +60,8 @@ Build and integration test (need autorest installed, currently run on Windows)
 
 `mvn package -P local,integration`
 
+[Azure DevOps CI](https://dev.azure.com/weidxu/public/_build?definitionId=4)
+
 ## autorest pipeline
 
 autorest.core v3 -> modelerfour -> autorest.java v4
