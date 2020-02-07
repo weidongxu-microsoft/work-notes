@@ -16,7 +16,11 @@ At present, branch `v4_fluentgen_lro` has experiential implementation on LRO sup
 
 Build
 
-`mvn package -Dlocal`
+`mvn package -P local`
+
+Integration test (need autorest installed, currently run on Windows)
+
+`mvn package -P local,integration`
 
 ### Build autorest core
 
