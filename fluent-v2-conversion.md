@@ -18,10 +18,6 @@ Build
 
 `mvn package -P local`
 
-Integration test (need autorest installed, currently run on Windows)
-
-`mvn package -P local,integration`
-
 ### Build autorest core
 
 https://github.com/weidongxu-microsoft/work-notes/blob/master/autorest-java-v4.md#azure-core
