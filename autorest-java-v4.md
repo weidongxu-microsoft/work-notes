@@ -44,7 +44,7 @@ Input from modelerfour.
 
 Build
 
-`mvn package -Dlocal`
+`mvn package -P local`
 
 Run with single swagger file
 
@@ -55,6 +55,10 @@ Temporary Fluent Repo
 https://github.com/weidongxu-microsoft/autorest.java/tree/v4_fluentgen
 
 With `fluentgen` module.
+
+Build and integration test (need autorest installed, currently run on Windows)
+
+`mvn package -P local,integration`
 
 ## autorest pipeline
 
