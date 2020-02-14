@@ -94,9 +94,9 @@ Build core
 
 Under `./sdk/core`
 
-`mvn -DskipTests -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip -Drevapi.skip -f pom.service.xml -pl azure-core,azure-core-http-netty -am install`
+`mvn -DskipTests -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip -Drevapi.skip -Dmaven.javadoc.skip -f pom.service.xml -pl azure-core,azure-core-http-netty -am install`
 
-Build identity
+Build identity (not needed for now)
 
 Under `./sdk/identity`
 
