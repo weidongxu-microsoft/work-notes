@@ -80,7 +80,7 @@ Possible new test server https://github.com/Azure/autorest.test-server
 
 ## Azure Core
 
-Repo (use Azure Core Managemen branch for now)
+Repo
 
 https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/core
 
@@ -109,6 +109,8 @@ Under `./sdk/keyvault`
 `mvn -DskipTests -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip -Drevapi.skip -Dmaven.javadoc.skip -f pom.service.xml install`
 
 ## Azure Core Management
+
+Same repo as [Core](#azure-core).
 
 Build
 
