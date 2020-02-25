@@ -100,23 +100,21 @@ Build identity (not needed for now)
 
 Under `./sdk/identity`
 
-`mvn -DskipTests -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip -Drevapi.skip -f pom.service.xml install`
+`mvn -DskipTests -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip -Drevapi.skip -Dmaven.javadoc.skip -f pom.service.xml install`
 
 Build keyvault (not needed for now)
 
 Under `./sdk/keyvault`
 
-`mvn -DskipTests -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip -Drevapi.skip -f pom.service.xml install`
+`mvn -DskipTests -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip -Drevapi.skip -Dmaven.javadoc.skip -f pom.service.xml install`
 
 ## Azure Core Management
-
-Checkout https://github.com/yaohaizh/azure-sdk-for-java/tree/mgmt-poller
 
 Build
 
 Under `./sdk/core/azure-core-management`
 
-`mvn -DskipTests -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip -Drevapi.skip install`
+`mvn -DskipTests -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip -Drevapi.skip -Dmaven.javadoc.skip install`
 
 ## Detail on autorest.java v4
 
