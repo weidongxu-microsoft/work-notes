@@ -142,10 +142,9 @@ codeModel -> clientModel -> JAVA code
 - `model.mapper` map codeModel to clientModel.
 - `model.javamodel` util for coding and generating JAVA code.
 - `template` template (using javamodel) for generating JAVA code; map codeModel to JAVA code.
+- `package.json` npm config.
 
 `tests` test cases.
-
-`package.json` npm config.
 
 ### Fluent 
 
