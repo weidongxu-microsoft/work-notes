@@ -134,8 +134,10 @@ codeModel -> clientModel -> JAVA code
 - `jsonrpc` JSON-RPC, the communication pipeline with autorest.core. `ListInputs`, `ReadValue`, `Message`, `WriteFile`, `ReadFile`.
 - `model` basically JAVA representation of **codeModel**, equavalent to the yaml of modelerfour.
 
-`javagen`
+`preprocessor`
 - `transformer` transform codeModel into itself.
+
+`javagen`
 - `model.clientmodel` **clientModel**, supposed to be representation-neutral model for various JAVA code structure.
 - `model.mapper` map codeModel to clientModel.
 - `model.javamodel` util for coding and generating JAVA code.
@@ -143,8 +145,12 @@ codeModel -> clientModel -> JAVA code
 
 `tests` test cases.
 
-`Javagen.java` entry point.
+`package.json` npm config.
 
 ### Fluent 
 
-`fluentgen` (parallel to `javagen`) to generate Fluent Lite/Premium JAVA code.
+`fluentnamer` (parallel to `preprocessor`)
+
+`fluentgen` (parallel to `javagen`) to generate Fluent Lite/Premium Java code.
+
+`fluent-tests` to generate Fluent Java code based on genunine management swagger spec, test for compilation and conformity to expected interface.
