@@ -147,6 +147,7 @@ codeModel -> clientModel -> JAVA code
 - `model.javamodel` util for coding and generating JAVA code.
 - `template` template (using javamodel) for generating JAVA code; map codeModel to JAVA code.
 - `package.json` npm config.
+- `readme.md` readme, and config for autorest pipeline.
 
 `tests` test cases.
 
