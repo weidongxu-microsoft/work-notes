@@ -54,7 +54,11 @@ Temporary Fluent Repo
 
 https://github.com/weidongxu-microsoft/autorest.java/tree/v4_fluentgen
 
-With `fluentgen` module.
+`fluentnamer` and `fluentgen` module.
+
+Build
+
+`mvn package -P local`
 
 Build and integration test (need autorest installed, currently run on Windows)
 
