@@ -4,11 +4,11 @@
 
 Repo
 
-https://github.com/Azure/autorest/tree/v3, branch `v3`.
+https://github.com/Azure/autorest/
 
 Install
 
-`(sudo) npm install -g "@autorest/autorest"`
+`(sudo) npm install -g autorest`
 
 Run
 
