@@ -12,7 +12,7 @@ Install
 
 Run
 
-`autorest-beta --info`
+`autorest --info`
 
 Useful parameters
 
@@ -20,7 +20,7 @@ Useful parameters
 
 `--interactive` show UI with pipeline graph, and related input/output.
 
-`--debugger` pause for debugger be attached.
+`--java.debugger` pause for Java debugger be attached.
 
 `--version=` fall back to looking at github for specific version.
 
@@ -42,18 +42,6 @@ https://github.com/Azure/autorest.java/tree/v4, branch `v4`.
 
 Input from modelerfour.
 
-Build
-
-`mvn package -P local`
-
-Run with single swagger file
-
-`autorest-beta --use:"C:/github_fork/autorest.java" --java --input-file:"C:/github/autorest.testserver/swagger/body-string.json" --output-folder:"tests" --namespace:fixtures.bodystring --sync-methods=all`
-
-Temporary Fluent Repo
-
-https://github.com/weidongxu-microsoft/autorest.java/tree/v4_fluentgen
-
 `fluentnamer` and `fluentgen` module.
 
 Build
@@ -64,7 +52,11 @@ Build and integration test (need autorest installed, currently run on Windows)
 
 `mvn package -P local,integration`
 
-[Azure DevOps CI](https://dev.azure.com/weidxu/public/_build?definitionId=4)
+[Azure DevOps CI](https://dev.azure.com/azure-sdk/public/_build?definitionId=1590)
+
+Fluent Repo with latest unmerged feature.
+
+https://github.com/weidongxu-microsoft/autorest.java/tree/v4_fluentgen
 
 ## autorest pipeline
 
