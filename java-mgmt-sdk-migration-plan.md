@@ -24,7 +24,7 @@ Name could change for some SDK.
 
 3.
 
-For aggregate SDK and samples, we can move it to `sdk/management`
+For aggregate SDK and samples, we can move it to `sdk/management`.
 
 `azure & azure-samples -> management/mgmt & management/mgmt-samples`
 
@@ -38,4 +38,4 @@ Do we use them? `ci & tools`
 
 5.
 
-Other files in project root would in principle go to `sdk/management`
+`notes`, and other files in project root would in principle go to `sdk/management` (need some clean up).
