@@ -4,7 +4,7 @@ Target repo: https://github.com/Azure/azure-sdk-for-java
 
 1.
 
-For SDK, we can move it to e.g.
+For SDK `azure-mgmt-*`, we can move it to e.g.
 
 `azure-mgmt-storage -> sdk/storage/mgmt`
 
