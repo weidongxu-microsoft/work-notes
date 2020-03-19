@@ -1,9 +1,10 @@
 Source repo: https://github.com/Azure/azure-libraries-for-java
+
 Target repo: https://github.com/Azure/azure-sdk-for-java
 
 1.
 
-For single SDK, we can move it to e.g.
+For SDK, we can move it to e.g.
 
 `azure-mgmt-storage -> sdk/storage/mgmt`
 
@@ -11,7 +12,7 @@ Question: Should we use a better name than "mgmt"? Do we need to save a name for
 
 2.
 
-For some SDK, name could change.
+Name could change for some SDK.
 
 `cosmosdb -> cosmos`
 
