@@ -50,7 +50,7 @@ Build
 
 Build and integration test (need autorest installed, currently run on Windows)
 
-`mvn package -P local,integration`
+`mvn package -P local,testFluent`
 
 [Azure DevOps CI](https://dev.azure.com/azure-sdk/public/_build?definitionId=1590)
 
@@ -82,27 +82,9 @@ https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/core
 
 Build
 
-Under `./eng/code-quality-reports`
+Build core (not needed until Azure Core Management uses unpublished Azure Core)
 
-`mvn install`
-
-Build core
-
-Under `./sdk/core`
-
-`mvn -DskipTests -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip -Drevapi.skip -Dmaven.javadoc.skip -f pom.service.xml -pl azure-core,azure-core-http-netty -am install`
-
-Build identity (not needed for now)
-
-Under `./sdk/identity`
-
-`mvn -DskipTests -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip -Drevapi.skip -Dmaven.javadoc.skip -f pom.service.xml install`
-
-Build keyvault (not needed for now)
-
-Under `./sdk/keyvault`
-
-`mvn -DskipTests -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip -Drevapi.skip -Dmaven.javadoc.skip -f pom.service.xml install`
+`mvn -DskipTests -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip -Drevapi.skip -Dmaven.javadoc.skip -pl com.azure:azure-core -am install`
 
 ## Azure Core Management
 
