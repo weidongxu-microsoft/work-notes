@@ -50,4 +50,4 @@ POM in root could aggregate this `sdk/management/pom.xml`, to include latest Flu
 
 We can keep it this way at first, then try to see if we need to break it to 2 separate POMs as parent and as aggregate.
 
-Also as parent POM, it needs lots of rework to conform it to similar functions as pom.client.xml (checkstyle, spotbugs, javadoc, surefire, jacoco, revapi).
+As parent POM, it needs lots of rework to conform it to similar functions as pom.client.xml (checkstyle, spotbugs, javadoc, surefire, jacoco, revapi).
