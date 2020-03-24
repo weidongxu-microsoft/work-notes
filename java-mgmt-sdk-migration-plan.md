@@ -1,4 +1,4 @@
-Source repo: https://github.com/Azure/azure-libraries-for-java
+Source repo: https://github.com/Azure/azure-libraries-for-java/tree/vnext
 
 Target repo: https://github.com/Azure/azure-sdk-for-java
 
