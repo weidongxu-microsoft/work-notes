@@ -26,7 +26,7 @@ Name could change for some SDK.
 
 For aggregate SDK and samples, we can move it to `sdk/management`.
 
-`azure -> management/mgmt`
+`azure -> management/azure`
 
 `azure-samples -> management/samples`
 
