@@ -80,11 +80,11 @@ Repo
 
 https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/core
 
-Build
-
-Build core (not needed until Azure Core Management uses unpublished Azure Core)
+Build core (not needed unless Azure Core Management uses unpublished Azure Core)
 
 `mvn -DskipTests -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip -Drevapi.skip -Dmaven.javadoc.skip -pl com.azure:azure-core -am install`
+
+Build other SDK: change `com.azure:azure-core` to other artifacts
 
 ## Azure Core Management
 
