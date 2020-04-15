@@ -2,7 +2,7 @@
 
 `com.azure.management`
 
-Shared support/configure/authentication classes for ARM, aggregate following services and samples
+Shared support/configure/authentication classes for ARM, samples, aggregate following services
 
 ### app service / web
 
