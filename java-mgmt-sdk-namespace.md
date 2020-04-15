@@ -63,7 +63,7 @@ Candidate namespace: `com.azure.management.authorization`
 
 https://github.com/Azure/azure-rest-api-specs/tree/master/specification/keyvault/resource-manager
 
-Candidate namespace `com.azure.management.security.keyvault`
+Candidate namespace: `com.azure.management.security.keyvault`
 
 ### monitor
 
@@ -77,7 +77,7 @@ https://github.com/Azure/azure-rest-api-specs/tree/master/specification/monitor/
 
 https://github.com/Azure/azure-rest-api-specs/tree/master/specification/msi/resource-manager
 
-Candidate namespace `com.azure.management.managedserviceidentity`
+Candidate namespace: `com.azure.management.managedserviceidentity`
 
 ### network
 
