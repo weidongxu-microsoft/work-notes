@@ -1,3 +1,5 @@
+### azure management
+
 `com.azure.management`
 
 Shared support/configure/authentication classes for ARM, aggregate following services and samples
@@ -60,6 +62,7 @@ Candidate namespace: `com.azure.management.authorization`
 `com.azure.management.keyvault`
 
 https://github.com/Azure/azure-rest-api-specs/tree/master/specification/keyvault/resource-manager
+
 Candidate namespace `com.azure.management.security.keyvault`
 
 ### monitor
