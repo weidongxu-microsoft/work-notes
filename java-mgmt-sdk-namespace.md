@@ -1,67 +1,101 @@
 `com.azure.management`
-Aggregate and samples
+
+Shared support/configure/authentication classes for ARM, aggregate following services and samples
+
+### app service / web
 
 `com.azure.management.appservice`
-app service / web
+
 https://github.com/Azure/azure-rest-api-specs/tree/master/specification/web/resource-manager
 
+### cdn
+
 `com.azure.management.cdn`
-cdn
+
 https://github.com/Azure/azure-rest-api-specs/tree/master/specification/cdn/resource-manager
 
+### compute
+
 `com.azure.management.compute`
-compute
+
 https://github.com/Azure/azure-rest-api-specs/tree/master/specification/compute/resource-manager
 
+### container registry
+
 `com.azure.management.containerregistry`
-container registry
+
 https://github.com/Azure/azure-rest-api-specs/tree/master/specification/containerregistry/resource-manager
 
+### container service
+
 `com.azure.management.containerservice`
-container service
+
 https://github.com/Azure/azure-rest-api-specs/tree/master/specification/containerservice/resource-manager
 
+### cosmos
+
 `com.azure.management.cosmosdb`
-cosmos
+
 https://github.com/Azure/azure-rest-api-specs/tree/master/specification/cosmos-db/resource-manager
+
 Candidate namespace: `com.azure.management.cosmos`
 
+### dns
+
 `com.azure.management.dns`
-dns
+
 https://github.com/Azure/azure-rest-api-specs/tree/master/specification/dns/resource-manager
 
+### authorization
+
 `com.azure.management.graphrbac`
-authorization
+
 https://github.com/Azure/azure-rest-api-specs/tree/master/specification/authorization/resource-manager
 https://github.com/Azure/azure-rest-api-specs/tree/master/specification/graphrbac/data-plane
+
 Candidate namespace: `com.azure.management.authorization`
 
+### keyvault
+
 `com.azure.management.keyvault`
-keyvault
+
 https://github.com/Azure/azure-rest-api-specs/tree/master/specification/keyvault/resource-manager
 Candidate namespace `com.azure.management.security.keyvault`
 
+### monitor
+
 `com.azure.management.monitor`
-monitor
+
 https://github.com/Azure/azure-rest-api-specs/tree/master/specification/monitor/resource-manager
 
+### managed service identity
+
 `com.azure.management.msi`
-managed service identity
+
 https://github.com/Azure/azure-rest-api-specs/tree/master/specification/msi/resource-manager
+
 Candidate namespace `com.azure.management.managedserviceidentity`
 
+### network
+
 `com.azure.management.network`
-network
+
 https://github.com/Azure/azure-rest-api-specs/tree/master/specification/network/resource-manager
 
+### resources
+
 `com.azure.management.resources`
-resources
+
 https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resources/resource-manager
 
+### sql
+
 `com.azure.management.sql`
-sql
+
 https://github.com/Azure/azure-rest-api-specs/tree/master/specification/sql/resource-manager
 
+### storage
+
 `com.azure.management.storage`
-storage
+
 https://github.com/Azure/azure-rest-api-specs/tree/master/specification/storage/resource-manager
