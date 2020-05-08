@@ -12,6 +12,8 @@ Update autorest.core
 
 Checkout branch https://github.com/weidongxu-microsoft/autorest.java/tree/v4_fluentgen
 
+Under `/sdk/management`
+
 Build
 
 `mvn package -P local`
