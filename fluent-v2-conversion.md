@@ -2,17 +2,15 @@
 
 ### Install autorest v3
 
-`(sudo) npm install -g "@autorest/autorest"`
+`(sudo) npm install -g autorest
 
 Update autorest.core
 
-`autorest-beta --version=3.0.6197`
+`autorest --version=latest`
 
 ### Build autorest.java v4 fluentgen
 
 Checkout branch https://github.com/weidongxu-microsoft/autorest.java/tree/v4_fluentgen
-
-At present, branch `v4_fluentgen_lro` has experiential implementation on LRO support.
 
 Build
 
@@ -22,11 +20,9 @@ Build
 
 https://github.com/weidongxu-microsoft/work-notes/blob/master/autorest-java-v4.md#azure-core
 
-### Check out Fluent Java v2
+### Check out Fluent Java
 
-Checkout branch https://github.com/Azure/azure-libraries-for-java/tree/vnext
-
-Overall build might not work. But build/run single test case within a successfully migrated service should work.
+Checkout branch https://github.com/Azure/azure-sdk-for-java
 
 # Migrate SDK in Fluent
 
@@ -36,17 +32,12 @@ Change `package` to e.g. `com.azure.management.resources` (without microsoft in 
 
 Optionally, add to `args`.
 `--add-inner=Class` if you want some class be named as FooInner.
-`--add-client-flatten=Class` or `--add-client-flatten=Class.properties` if there is x-ms-client-flatten not correctly processed.
 
 ### 2. Regenerate code
 
 Generate code
 
-`gulp codegen --autorest {VERSION} --projects {SERVICE} --spec-root={SPEC_ROOT} --autorest-java={AUROREST_JAVA_ROOT}/fluentgen`
-
-Since there is local processing for README.md, SPEC_ROOT must be a local folder.
-
-Note `./fluentgen` under AUROREST_JAVA_ROOT.
+`gulp codegen --projects {SERVICE} --spec-root={SPEC_ROOT} --autorest-java={AUROREST_JAVA_ROOT}`
 
 # Migrate notes
 
