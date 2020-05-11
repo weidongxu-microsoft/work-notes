@@ -1,37 +1,5 @@
 # Fluent Java SDK Overview
 
-## Generated code
-
-The generated code is basically follow same style as data-plane, except naming convention.
-
-And the code can be called by customer. For example, to create a storage account.
-
-```java
-StorageManagementClientImpl implClient = 
-    new StorageManagementClientBuilder()
-        .pipeline(httpPipeline)
-        .host(resourceManagerEndpoint)
-        .subscriptionId(subscriptionId)
-        .buildClient();
-
-StorageAccountInner storageAccount = 
-    implClient.storageAccounts().create(resourceGroupName, accountName, 
-        new StorageAccountCreateParameters()
-            .withLocation(location)
-            .withKind(Kind.STORAGE_V2)
-            .withSku(new Sku().withName(SkuName.STANDARD_LRS))
-            .withEnableHttpsTrafficOnly(true)
-            .withTags(Map.of("product", "javasdk",
-                "cause", "automation"))));
-```
-
-However Fluent SDK does not recommend customer to use this directly.
-The detail of the reasons will be elaborated in [Fluent Interface](#fluent-interface).
-
-But if Fluent interface cannot meet certain requirement, customer can fallback to this.
-
----
-
 ## Fluent interface
 
 The Fluent interface can be deemed as an internal DSL which runs in Java.
@@ -396,6 +364,38 @@ Because of non-global Azure AD, and subscriptionId required by most management s
 Question:
 1. Is it better to use builder style for `AzureProfile`?
 2. Do we keep the Fluent interface here, or try to conform to builder style for service client?
+
+---
+
+## Generated code
+
+The generated code is basically follow same style as data-plane, except naming convention.
+
+And the code can be called by customer. For example, to create a storage account.
+
+```java
+StorageManagementClientImpl implClient = 
+    new StorageManagementClientBuilder()
+        .pipeline(httpPipeline)
+        .host(resourceManagerEndpoint)
+        .subscriptionId(subscriptionId)
+        .buildClient();
+
+StorageAccountInner storageAccount = 
+    implClient.storageAccounts().create(resourceGroupName, accountName, 
+        new StorageAccountCreateParameters()
+            .withLocation(location)
+            .withKind(Kind.STORAGE_V2)
+            .withSku(new Sku().withName(SkuName.STANDARD_LRS))
+            .withEnableHttpsTrafficOnly(true)
+            .withTags(Map.of("product", "javasdk",
+                "cause", "automation"))));
+```
+
+However Fluent SDK does not recommend customer to use this directly.
+The detail of the reasons is already elaborated in [Fluent Interface](#fluent-interface) (primary for easy of use, and secondrary to avoid frequent breaking change from service upgrade).
+
+But if Fluent interface cannot meet certain requirement (when some interface is not implemented, or customer really want to access all the details of HTTP request/response), customer can still fallback to this.
 
 ---
 
