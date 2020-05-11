@@ -6,7 +6,7 @@ The Fluent interface can be deemed as an internal DSL which runs in Java.
 
 Under the hood, it calls generated code for most REST APIs.
 
-The same functionality of creating storage account can be achieved by:
+The functionality of creating storage account can be achieved by (compare with calling [generated code](gen_storage_account) directly):
 
 ```java
 StorageAccount storageAccount =
@@ -371,7 +371,7 @@ Question:
 
 The generated code is basically follow same style as data-plane, except naming convention.
 
-And the code can be called by customer. For example, to create a storage account.
+And the code can be called by customer. For example, <a name="gen_storage_account">to create a storage account</a>.
 
 ```java
 StorageManagementClientImpl implClient = 
