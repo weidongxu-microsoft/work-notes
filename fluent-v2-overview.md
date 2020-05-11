@@ -6,7 +6,7 @@ The Fluent interface can be deemed as an internal DSL which runs in Java.
 
 Under the hood, it calls generated code for most REST APIs.
 
-The functionality of creating storage account can be achieved by (compare with calling [generated code](gen_storage_account) directly):
+The functionality of creating storage account can be achieved by (compare with calling [generated code](#gen_storage_account) directly):
 
 ```java
 StorageAccount storageAccount =
