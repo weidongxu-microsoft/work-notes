@@ -332,7 +332,7 @@ In future, etag handling and private link would expected to be normalized as wel
 
 ---
 
-I do not intend to say that item 2 to 5 is only solvable by Fluent interface, but rather they are currently integrated with Fluent interface.
+I do not intend to claim that item 2 to 5 is only solvable by Fluent interface, but rather they are currently integrated with Fluent interface.
 
 ---
 
