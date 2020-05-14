@@ -369,7 +369,7 @@ Question:
 
 ## Generated code
 
-The generated code is basically follow same style as data-plane, except naming convention.
+The generated code basically follows same style as data-plane, except naming convention.
 
 And the code can be called by customer. For example, <a name="gen_storage_account">to create a storage account</a>.
 
