@@ -317,7 +317,7 @@ Some apparent shortcomings:
 
 Possible enhancement for track2:
 - `beginCreate` with first response (Success or Accept), then optionally continue the polling, or wait till later. Helpful in case that operation takes hours.
-- Alternative for operation without resource object. Helpful in case that lots of operation is needed, and additional GET is to be avoided.
+- Alternative for operation without resource object. Helpful in case that lots of operation on different resources is needed, and additional GET is to be avoided.
 
 ---
 
