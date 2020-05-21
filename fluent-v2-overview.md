@@ -315,6 +315,10 @@ Some apparent shortcomings:
 - Higher manual efforts to maintain Fluent interface
 - As internal DSL, it does not conform to common Java style
 
+Possible enhancement for track2:
+- `beginCreate` with first response (Success or Accept), then optionally continue the polling, or wait till later. Helpful in case that operation takes hours.
+- Alternative for operation without resource object. Helpful in case that lots of operation is needed, and additional GET is to be avoided.
+
 ---
 
 ## Fundamental APIs
