@@ -318,7 +318,7 @@ Some apparent shortcomings:
 Possible enhancement for track2:
 - `beginCreate` with first response (Success or Accept), then optionally continue the polling, or wait till later. Helpful in case that operation takes hours.
 - Alternative for operation without resource object. Helpful in case that large number of operations on different resources is needed, and GET requests to initalize the resource object is taking quota unnecessarily.
-- Alternative to resource objects returned in `list`, but requires additional `get` per object to complete the object.
+- Alternative for initializing resource objects returned in `list`, some of which requires additional GET requests per object to complete the initialization.
 
 ---
 
@@ -340,7 +340,7 @@ Question:
 ### Build Fluent client
 
 ```
-AzureProfile profile = new AzureProfile(AzureEnvironment.AZURE, true);
+AzureProfile profile = new AzureProfile(AzureEnvironment.AZURE);
 TokenCredential credential = new DefaultAzureCredentialBuilder()
     .authorityHost(profile.environment().getActiveDirectoryEndpoint())
     .build();
