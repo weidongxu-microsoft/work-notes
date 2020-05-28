@@ -67,6 +67,7 @@ class VirtualMachineInner extends Resource {
     private String vmId;
 }
 
+// configure on OS under VM
 class OSProfile {
     private String computerName;
     private String adminUsername;
@@ -77,6 +78,15 @@ class OSProfile {
     private List<VaultSecretGroup> secrets;
     private Boolean allowExtensionOperations;
     private Boolean requireGuestProvisionSignal;
+}
+
+// configure on Windows under OS
+class WindowsConfiguration {
+    private Boolean provisionVMAgent;
+    private Boolean enableAutomaticUpdates;
+    private String timeZone;
+    private List<AdditionalUnattendContent> additionalUnattendContent;
+    private WinRMConfiguration winRM;
 }
 ```
 
