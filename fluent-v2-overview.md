@@ -470,11 +470,11 @@ Classes under `models` package is usually either property of an Azure resource, 
 
 Classes under `fluent.inner` package is usually type of Azure resource, renamed and relocated to avoid naming conflict (`StorageAccountInner` generated class vs. `StorageAccount` hand-written interface).
 
-### 3. Generated client from Fluent interface
+### 3. Fluent interface to Generated client
 
-`StorageManager` wraps a `StorageManagementClient` root client. `StorageAccounts` interface and implmentation wraps a `StorageAccountsClient` client. `StorageAccount` interface and implmentation wraps a `StorageAccountInner` class.
+`StorageManager` wraps a `StorageManagementClient` generated root client. `StorageAccounts` interface and implmentation wraps a `StorageAccountsClient` generated client. `StorageAccount` interface and implmentation wraps a `StorageAccountInner` generated class.
 
-THerefore, the solution for customer who want to call HTTP request directly is such:
+Therefore, the solution for customer who want to call HTTP request directly can be such:
 
 ```java
 client.storageAccounts().inner().create(...)
@@ -486,7 +486,7 @@ or:
 client.storageAccounts().manager().inner().getFileShares().create(...)
 ```
 
-For an Azure resource:
+For raw properties of an Azure resource:
 
 ```java
 storageAccount.inner().secondaryEndpoints()
