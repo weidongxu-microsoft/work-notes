@@ -389,7 +389,7 @@ The generated code basically follows same style as data-plane, except naming con
 And the code can be called by customer. For example, <a name="gen_storage_account">to create a storage account</a>.
 
 ```java
-StorageManagementClientImpl implClient = 
+StorageManagementClient implClient = 
     new StorageManagementClientBuilder()
         .pipeline(httpPipeline)
         .host(resourceManagerEndpoint)
@@ -411,6 +411,86 @@ However Fluent SDK does not recommend customer to use this directly.
 The detail of the reasons is already elaborated in [Fluent Interface](#fluent-interface) (primary for easy of use, and secondrary to avoid frequent breaking change from service upgrade).
 
 But if Fluent interface cannot meet certain requirement (when some interface is not implemented, or customer really want to access all the details of HTTP request/response), customer can still fallback to this.
+
+---
+
+## Relation of Fluent interface and generated code
+
+Let us take storage service as example.
+
+### 1. Classes related to Fluent interface (hand-written)
+
+```
+--- com.azure.management.storage
+ |- StorageManager.java
+ |- models
+   |- StorageAccounts.java
+   |- StorageAccount.java
+   |- ...
+ !- implementation
+   |- StorageAccountsImpl.java
+   |- StorageAccountImpl.java
+   |- ...
+```
+
+`StorageManager` is the entry point of Fluent interface.
+
+`StorageAccounts` is the interface for collection of storage accounts. It supports `list`, `get`, `delete`, as well as entry for `define...create`, optionally batch create and batch delete. In addition to CRUD, it also supports additional operation that either apply to collection of instances (e.g. `checkNameAvailability`), or apply to a single instance as short-cut (e.g. `restart` in `VirtualMachines`, which is same as `restart` in `VirtualMachine` except for a virtual machine name parameter).
+
+`StorageAccount` is the interface for storage account instance. It contains properties of the instance (read-only), as well as interfaces contructing the Fluent code flow for `define...create` and `update...apply` (and `refresh` current instance). It also supports other non-CRUD operations (e.g. `regenerateKey`).
+
+This interface for Azure resource provides an abstraction layer, which mitigates changes in generated code.
+
+`storageManager.storageAccounts()` returns `StorageAccounts` interface.
+
+`list`, `get` method of `StorageAccounts` returns `StorageAccount` instance. `define...create` Fluent code flow returns a new `StorageAccount` instance. `update...apply` Fluent code flow and `refresh` method of `StorageAccount` returns an updated instance.
+
+### 2. Generated classes
+
+```
+--- com.azure.management.storage
+ |- StorageManagementClientBuilder.java
+ |- StorageManagementClient.java
+ |- models
+   |- AccountStatus.java
+   |- ...
+ !- fluent
+   |- StorageAccountsClient.java
+   |- ...
+     !- innter
+       !- StorageAccountInner.java
+       !- ...
+```
+
+`StorageManagementClientBuilder` is the client builder, and `StorageManagementClient` is the root client. For management-plane, the root client usually delegates most operations to operation groups / sub-client.
+
+`fluent` package contains sub-client `StorageAccountsClient`, as well as other sub-clients: `BlobContainersClient`, `ManagementPoliciesClient` etc.
+
+Classes under `models` package is usually either property of an Azure resource, or parameter of an operation parameter, or exception and error.
+
+Classes under `fluent.inner` package is usually type of Azure resource, renamed and relocated to avoid naming conflict (`StorageAccountInner` generated class vs. `StorageAccount` hand-written interface).
+
+### 3. Generated client from Fluent interface
+
+`StorageManager` wraps a `StorageManagementClient` root client. `StorageAccounts` interface and implmentation wraps a `StorageAccountsClient` client. `StorageAccount` interface and implmentation wraps a `StorageAccountInner` class.
+
+THerefore, the solution for customer who want to call HTTP request directly is such:
+
+```java
+client.storageAccounts().inner().create(...)
+```
+
+or:
+
+```java
+client.storageAccounts().manager().inner().getFileShares().create(...)
+```
+
+For an Azure resource:
+
+```java
+storageAccount.inner().secondaryEndpoints()
+```
 
 ---
 
