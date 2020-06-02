@@ -12,8 +12,6 @@ Update autorest.core
 
 Checkout branch https://github.com/weidongxu-microsoft/autorest.java/tree/v4_fluentgen
 
-Under `/sdk/management`
-
 Build
 
 `mvn package -P local`
@@ -25,6 +23,8 @@ https://github.com/weidongxu-microsoft/work-notes/blob/master/autorest-java-v4.m
 ### Check out Fluent Java
 
 Checkout branch https://github.com/Azure/azure-sdk-for-java
+
+Under `/sdk/management`
 
 # Migrate SDK in Fluent
 
