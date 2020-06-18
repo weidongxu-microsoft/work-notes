@@ -96,6 +96,10 @@ Under `./sdk/core/azure-core-management`
 
 `mvn -DskipTests -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip -Drevapi.skip -Dmaven.javadoc.skip install`
 
+(Optional) Purge local repository of previous build
+
+`mvn dependency:purge-local-repository -DmanualInclude=com.azure:azure-core-management`
+
 ## Detail on autorest.java v4
 
 ### Configuration
