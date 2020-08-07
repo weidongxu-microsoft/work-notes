@@ -82,7 +82,7 @@ https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/core
 
 Build core (not needed unless Azure Core Management uses unpublished Azure Core)
 
-`mvn -DskipTests -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip -Drevapi.skip -Dmaven.javadoc.skip -pl com.azure:azure-core, com.azure:azure-core-test,com.azure:azure-core-http-netty -am install`
+`mvn -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip -Drevapi.skip -Dmaven.javadoc.skip -pl com.azure:azure-core, com.azure:azure-core-test,com.azure:azure-core-http-netty -am install`
 
 Build other SDK: change `com.azure:azure-core` to other artifacts
 
@@ -92,9 +92,7 @@ Same repo as [Core](#azure-core).
 
 Build
 
-Under `./sdk/core/azure-core-management`
-
-`mvn -DskipTests -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip -Drevapi.skip -Dmaven.javadoc.skip install`
+`mvn -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip -Drevapi.skip -Dmaven.javadoc.skip -pl com.azure:azure-core-management -am install`
 
 (Optional) Purge local repository of previous build
 
