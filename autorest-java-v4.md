@@ -92,7 +92,7 @@ Same repo as [Core](#azure-core).
 
 Build
 
-`mvn -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip -Drevapi.skip -Dmaven.javadoc.skip -pl com.azure:azure-core-management -am install`
+`mvn -DskipTests -Dgpg.skip -Dcheckstyle.skip -Dspotbugs.skip -Drevapi.skip -Dmaven.javadoc.skip -pl com.azure:azure-core-management -am install`
 
 (Optional) Purge local repository of previous build
 
