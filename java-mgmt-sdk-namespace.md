@@ -1,3 +1,5 @@
+# Task completed, document out-of-date
+
 ### azure management
 
 `com.azure.management`
