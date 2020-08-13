@@ -1,3 +1,5 @@
+# Task completed, document out-of-date
+
 Source repo: https://github.com/Azure/azure-libraries-for-java/tree/vnext
 
 Target repo: https://github.com/Azure/azure-sdk-for-java
