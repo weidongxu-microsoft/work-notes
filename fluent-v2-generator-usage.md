@@ -61,6 +61,28 @@ gulp codegen --projects sql --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAV
 gulp codegen --projects appplatform --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAVA
 ```
 
+### Code
+
+nodejs configure `package.json`
+
+nodejs gulp `gulpfile.js`
+
+config `api-specs.json`
+
+### Other utilities
+
+#### servcheck
+
+Check the difference from current implemented api-version to lastest api-version in spec.
+
+`npm run servcheck -- --spec-root=<path_to_swagger_spec>`
+
+#### credcheck
+
+Delete secrets in recorded sessions. (Currently include storage account connection string)
+
+`npm run credcheck_all`
+
 ### Reference
 
 [autorest.java v4](autorest-java-v4.md)
