@@ -59,6 +59,9 @@ gulp codegen --projects dns --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAV
 gulp codegen --projects monitor --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAVA
 gulp codegen --projects sql --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAVA
 gulp codegen --projects appplatform --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAVA
+gulp codegen --projects redis --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAVA
+gulp codegen --projects eventhubs --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAVA
+gulp codegen --projects trafficmanager --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAVA
 ```
 
 ### Code
