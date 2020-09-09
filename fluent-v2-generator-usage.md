@@ -30,6 +30,12 @@ export SPEC_ROOT=<path_to_swagger_spec>
 export AUTOREST_JAVA=<path_to_autorest_java_v4>
 ```
 
+E.g.
+```
+export SPEC_ROOT=/c/github/azure-rest-api-specs
+export AUTOREST_JAVA=/c/github_fork/autorest.java
+```
+
 Generate Java code (for all services)
 
 ```
@@ -62,6 +68,8 @@ gulp codegen --projects appplatform --spec-root $SPEC_ROOT --autorest-java $AUTO
 gulp codegen --projects redis --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAVA
 gulp codegen --projects eventhubs --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAVA
 gulp codegen --projects trafficmanager --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAVA
+gulp codegen --projects servicebus --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAVA
+gulp codegen --projects cdn --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAVA
 ```
 
 ### Code
