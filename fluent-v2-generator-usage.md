@@ -62,6 +62,7 @@ gulp codegen --projects containerservice --spec-root $SPEC_ROOT --autorest-java 
 gulp codegen --projects containerinstance --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAVA
 gulp codegen --projects cosmos --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAVA
 gulp codegen --projects dns --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAVA
+gulp codegen --projects privatedns --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAVA
 gulp codegen --projects monitor --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAVA
 gulp codegen --projects sql --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAVA
 gulp codegen --projects appplatform --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAVA
