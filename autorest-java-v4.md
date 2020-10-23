@@ -54,10 +54,6 @@ Build and integration test (need autorest installed, currently run on Windows)
 
 [Azure DevOps CI](https://dev.azure.com/azure-sdk/public/_build?definitionId=1590)
 
-Fluent Repo with latest unmerged feature.
-
-https://github.com/weidongxu-microsoft/autorest.java/tree/v4_fluentgen
-
 ## autorest pipeline
 
 autorest.core v3 -> modelerfour -> autorest.java v4
