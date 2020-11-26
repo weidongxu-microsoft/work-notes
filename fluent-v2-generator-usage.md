@@ -93,10 +93,10 @@ Generate Java code
 autorest $FLUENTLITE_ARGUMENTS --output-folder=$AZURE_JAVA/sdk/$RP/azure-resourcemanager-$RP --sdk-integration --java.namespace=com.azure.resourcemanager.$RP https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/$RP/resource-manager/readme.md
 ```
 
-If PreCheck fails but still like to generate code for the RP, use this in `MODELERFOUR_ARGUMENTS` env.
+If PreCheck fails but still need to generate code for the RP, override this in `MODELERFOUR_ARGUMENTS` env.
 
 ```
-export MODELERFOUR_ARGUMENTS="--pipeline.modelerfour.additional-checks=true --pipeline.modelerfour.lenient-model-deduplication=false"
+export MODELERFOUR_ARGUMENTS="--pipeline.modelerfour.additional-checks=false --pipeline.modelerfour.lenient-model-deduplication=true"
 ```
 
 #### Automation
