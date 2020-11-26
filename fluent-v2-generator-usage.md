@@ -81,8 +81,8 @@ Prepare env
 export AUTOREST_JAVA=<path_to_autorest_java_v4>
 export AZURE_JAVA=<path_to_azure_sdk_for_java>
 
-export MODELERFOUR_ARGUMENTS="--pipeline.modelerfour.additional-checks=true --pipeline.modelerfour.lenient-model-deduplication=false --pipeline.modelerfour.flatten-payloads=false"
-export FLUENTLITE_ARGUMENTS="--java --use=$AUTOREST_JAVA --azure-libraries-for-java-folder=$AZURE_JAVA $MODELERFOUR_ARGUMENT --azure-arm --fluent=lite --license-header=MICROSOFT_MIT_SMALL"
+export MODELERFOUR_ARGUMENTS="--pipeline.modelerfour.flatten-payloads=false"
+export FLUENTLITE_ARGUMENTS="--java --use=$AUTOREST_JAVA --azure-libraries-for-java-folder=$AZURE_JAVA $MODELERFOUR_ARGUMENTS --azure-arm --fluent=lite --license-header=MICROSOFT_MIT_SMALL"
 
 export RP=<resoruce_provider>
 ```
