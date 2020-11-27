@@ -36,7 +36,7 @@ Input from autorest.core v3. Output is yaml format.
 
 ### autorest.java v4
 
-Repo
+#### Repo
 
 https://github.com/Azure/autorest.java/tree/v4, branch `v4`.
 
@@ -44,13 +44,19 @@ Input from modelerfour.
 
 `fluentnamer` and `fluentgen` module.
 
-Build
+#### Build
 
 `mvn package -P local`
 
 Build and integration test (need autorest installed, currently run on Windows)
 
 `mvn package -P local,testFluent`
+
+#### Release
+
+First run the Build.
+
+Then run `npm pack`, and upload the tgz to Github Release asset.
 
 [Azure DevOps CI](https://dev.azure.com/azure-sdk/public/_build?definitionId=1590)
 
