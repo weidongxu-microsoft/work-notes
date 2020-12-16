@@ -103,11 +103,11 @@ export MODELERFOUR_ARGUMENTS="--pipeline.modelerfour.additional-checks=false --p
 
 https://dev.azure.com/azure-sdk/internal/_build?definitionId=2238
 
-For new service, to create corresponding CI, comment in PR:
+For new service, to create corresponding CI, comment in PR
 
 `/azp run prepare-pipelines`
 
-After it complete, trigger the CI:
+After it complete, trigger the CI
 
 `/azp run java - <service> - ci`
 
