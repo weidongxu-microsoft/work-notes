@@ -46,11 +46,11 @@ Input from modelerfour.
 
 #### Build
 
-`mvn package -P local`
+`mvn clean package -P local`
 
 Build and integration test (need autorest installed, currently run on Windows)
 
-`mvn package -P local,testFluent`
+`mvn clean package -P local,testFluent`
 
 #### Release
 
