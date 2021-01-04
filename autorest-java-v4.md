@@ -54,9 +54,9 @@ Build and integration test (need autorest installed, currently run on Windows)
 
 #### Release
 
-First run the Build.
-
-Then run `npm pack`, and upload the tgz to Github Release asset.
+1. Incremental version in `package.json`
+2. Build.
+3. Run `npm pack`, and upload the tgz to Github Release asset.
 
 [Azure DevOps CI](https://dev.azure.com/azure-sdk/public/_build?definitionId=1590)
 
