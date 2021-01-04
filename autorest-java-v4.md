@@ -58,7 +58,7 @@ Build and integration test (need autorest installed, currently run on Windows)
 2. Build.
 3. Run `npm pack`, and upload the tgz to Github Release asset.
 
-[Azure DevOps CI](https://dev.azure.com/azure-sdk/public/_build?definitionId=1590)
+After release, consider updating [configure](https://github.com/Azure/azure-sdk-for-java/blob/master/eng/mgmt/automation/parameters.py) for the [Fluent Lite automation on azure-sdk-for-java](https://github.com/weidongxu-microsoft/work-notes/blob/master/fluent-v2-generator-usage.md#automation) as well as the Swagger automation.
 
 ## autorest pipeline
 
