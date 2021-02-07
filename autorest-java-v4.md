@@ -64,7 +64,7 @@ After release, consider updating [configure](https://github.com/Azure/azure-sdk-
 
 autorest.core v3 -> modelerfour -> autorest.java v4
 
-## Legacy test server
+## Test server
 
 Repo
 
@@ -73,6 +73,8 @@ https://github.com/Azure/autorest.testserver
 Run under autorest.java
 
 `node node_modules/@microsoft.azure/autorest.testserver`
+
+Dashboard http://azure.github.io/autorest/dashboard.html
 
 Possible new test server https://github.com/Azure/autorest.test-server
 
