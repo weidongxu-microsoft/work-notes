@@ -52,6 +52,10 @@ Build and integration test (need autorest installed, currently run on Windows)
 
 `mvn clean package -P local,testFluent`
 
+Build and check code coverage (report generated in `fluentgen/target/site/test-coverage`)
+
+`mvn clean verify -P local`
+
 #### Release
 
 1. Incremental version in `package.json`
