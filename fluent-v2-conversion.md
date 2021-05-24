@@ -26,7 +26,7 @@ https://github.com/weidongxu-microsoft/work-notes/blob/master/autorest-java-v4.m
 
 Checkout branch https://github.com/Azure/azure-sdk-for-java
 
-Under `/sdk/management`
+Under `/sdk/resourcemanager`
 
 # Migrate SDK in Fluent
 
