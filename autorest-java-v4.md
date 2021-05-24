@@ -152,3 +152,8 @@ codeModel -> clientModel -> JAVA code
 `fluentgen` (parallel to `javagen`) to generate Fluent Lite/Premium Java code.
 
 `fluent-tests` to generate Fluent Java code based on genuine management swagger spec, test for compilation and conformity to expected interface.
+
+### Samples
+
+`generate.bat` for vanilla (data-plane).
+`fluent-tests/prepare-tests.bat` for fluent (management-plane).
