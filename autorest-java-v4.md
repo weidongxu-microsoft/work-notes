@@ -73,6 +73,8 @@ Build and check code coverage (report generated in `fluentgen/target/site/test-c
 2. Build.
 3. Run `npm pack`, and upload the tgz to Github Release asset.
 
+Github Action for release https://github.com/Azure/autorest.java/actions/workflows/pre-release.yml
+
 After release, consider updating [configure](https://github.com/Azure/azure-sdk-for-java/blob/master/eng/mgmt/automation/parameters.py) for the [Fluent Lite automation on azure-sdk-for-java](https://github.com/weidongxu-microsoft/work-notes/blob/master/fluent-v2-generator-usage.md#automation) as well as the Swagger automation.
 
 ## autorest pipeline
