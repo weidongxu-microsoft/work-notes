@@ -24,8 +24,6 @@ Useful parameters
 
 `--version=` fall back to looking at github for specific version.
 
-Output is json format.
-
 Doc
 
 https://github.com/Azure/autorest/tree/master/docs/generate
@@ -35,6 +33,8 @@ https://github.com/Azure/autorest/tree/master/docs/generate
 Repo
 
 https://github.com/Azure/autorest/tree/master/packages/extensions/core
+
+Output is json format.
 
 ### modelerfour
 
