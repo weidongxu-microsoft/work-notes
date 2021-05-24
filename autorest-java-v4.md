@@ -48,11 +48,12 @@ Input from autorest.core v3. Output is yaml format.
 
 #### Repo
 
-https://github.com/Azure/autorest.java/tree/v4, branch `v4`.
+https://github.com/Azure/autorest.java/
 
 Input from modelerfour.
 
-`fluentnamer` and `fluentgen` module.
+`fluentnamer` reads input from modelerfour, and output to `fluentgen` module.
+`fluentgen` module output to files.
 
 #### Build
 
