@@ -2,7 +2,7 @@
 
 # Prepare develop environment
 
-### Install autorest v3
+### Install autorest v3 
 
 `(sudo) npm install -g autorest
 
@@ -41,7 +41,7 @@ Optionally, add to `args`.
 
 Generate code
 
-`gulp codegen --projects {SERVICE} --spec-root={SPEC_ROOT} --autorest-java={AUROREST_JAVA_ROOT}`
+`gulp codegen --projects {SERVICE} --spec-root {SPEC_ROOT} --autorest-java {AUROREST_JAVA_ROOT}`
 
 # Migrate notes
 
