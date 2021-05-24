@@ -1,6 +1,6 @@
 ## Autorest Components
 
-### autorest.core v3
+### autorest v3
 
 Repo
 
@@ -26,11 +26,21 @@ Useful parameters
 
 Output is json format.
 
+Doc
+
+https://github.com/Azure/autorest/tree/master/docs/generate
+
+### autorest.core
+
+Repo
+
+https://github.com/Azure/autorest/tree/master/packages/extensions/core
+
 ### modelerfour
 
 Repo
 
-https://github.com/Azure/autorest.modelerfour
+https://github.com/Azure/autorest/tree/master/packages/extensions/modelerfour
 
 Input from autorest.core v3. Output is yaml format.
 
