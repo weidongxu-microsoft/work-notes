@@ -18,8 +18,6 @@ Useful parameters
 
 `--reset` drop all extensions.
 
-`--interactive` show UI with pipeline graph, and related input/output.
-
 `--java.debugger` pause for Java debugger be attached.
 
 `--version=` fall back to looking at github for specific version.
