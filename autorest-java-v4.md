@@ -158,3 +158,7 @@ codeModel -> clientModel -> JAVA code
 
 `generate.bat` for vanilla (data-plane).
 `fluent-tests/prepare-tests.bat` for fluent (management-plane).
+
+### Internal generated code for selected services
+
+https://github.com/ChenTanyi/autorest.java/tree/ci/test
