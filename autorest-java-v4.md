@@ -105,6 +105,8 @@ Build core (not needed unless Azure Core Management uses unpublished Azure Core)
 
 Build other SDK: change `com.azure:azure-core` to other artifacts
 
+`eng/code-quality-reports` is required to be installed, if any check is required (i.e. checkstyle, spotbugs, revapi).
+
 ## Azure Core Management
 
 Same repo as [Core](#azure-core).
