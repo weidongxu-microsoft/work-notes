@@ -1,4 +1,4 @@
-# Design Review - Generate samples for Java Fluent Lite
+# Design Review - Java Sample Generation
 
 # Summary
 
