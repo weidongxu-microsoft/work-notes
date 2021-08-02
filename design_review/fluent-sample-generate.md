@@ -214,6 +214,12 @@ This way, it will be straightforward for MSDocs team to gather all related code 
 
 The final MSDocs on REST API might look like the current one for [MSGraph](https://docs.microsoft.com/en-us/graph/api/user-post-events?view=graph-rest-1.0&tabs=http#examples).
 
+Alternatively we could use another repository to house the SDK samples.
+Our current consideration is (order by priority):
+1. Easy for MSDocs to retrieve corresponding SDK sample file, from the URI of the JSON example.
+1. Not affecting existing Swagger pipeline.
+1. Easy for SDK to publish the SDK samples, after SDK release.
+
 There could be a bit of technical challenge to create the side-by-side sample file in azure-rest-api-specs, as autorest currently erased filename information on the JSON examples.
 
 A candidate solution is to print the HTTP path, HTTP method, api-version, example name, operation group name, operation name (last 2 is likely redundant) in the comment block of the sample or md. And have a post-process to match it to Swagger.
