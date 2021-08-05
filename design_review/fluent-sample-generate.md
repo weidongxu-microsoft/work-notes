@@ -87,8 +87,8 @@ LiteralNode: "TestGroup"
 LiteralNode: "testserver"
 LiteralNode: "db1"
 ModelNode: (model=DatabaseInner)
-- LiteralNode: "utf8" (accesser=charset)
-- LiteralNode: "utf8_general_ci" (accesser=collation)
+- LiteralNode: "utf8" (accessor=charset)
+- LiteralNode: "utf8_general_ci" (accessor=collation)
 ```
 and generated as:
 ```java
@@ -102,7 +102,7 @@ mySqlManager.databases().createOrUpdate(
 ```
 for `Databases.CreateOrUpdate` operation (for illustration only, this form does not exist in code)
 
-`ModelNode` is internal node (as it require further elaboration on the properties/accessers), `LiteralNode` is external node (as boolean, int, or something that can be converted directly from string, e.g. enum, DateTime, or UUID).
+`ModelNode` is internal node (as it require further elaboration on the properties/accessors), `LiteralNode` is external node (as boolean, int, or something that can be converted directly from string, e.g. enum, DateTime, or UUID).
 There is a few other types of `ExampleNode`, e.g. `ListNode` and `MapNode` as internal, `ObjectNode` as external.
 
 `FluentResourceCreateExample` is slight different, but basic structure is similar. It generates:
@@ -122,7 +122,7 @@ Finally, `FluentExampleTemplate` generates the code we have seen above.
 It convert each `ExampleNode` to code segment. For example:
 
 - `ModelNode: (model=DatabaseInner)` generates `new DatabaseInner()`
-- `LiteralNode: "utf8" (accesser=charset)` generates `.withCharset("utf8")`
+- `LiteralNode: "utf8" (accessor=charset)` generates `.withCharset("utf8")`
 - `ListNode` generates `Arrays.asList(...)`
 - `ObjectNode` use primitive type if example value is JSON literal (string/number/boolean), otherwise code to deserialized JSON object/array
 
@@ -220,7 +220,19 @@ Our current consideration is (order by priority):
 1. Not affecting existing Swagger pipeline.
 1. Easy for SDK to publish the SDK samples, after SDK release.
 
-There could be a bit of technical challenge to create the side-by-side sample file in azure-rest-api-specs, as autorest currently erased filename information on the JSON examples.
+### Re-generate the samples
+
+If swagger changes, service will usually request re-release SDK.
+As we now have stricter rules on breaking changes, especially on same api-version, we would expect rare cases on this.
+However it might worth to have a watcher to notify SDK team that swagger changed but no release request sent.
+
+Another more common case would be that service team fixes a previous incorrect JSON example.
+In this case there would be no re-release request as there is no swagger change, but we still want to have sample code updated.
+We could have scheduled CI to watch for this case and automatically re-generate the sample codes.
+
+### Re-create same file structure as JSON examples
+
+There could be a bit of technical challenge to create the side-by-side sample files, as autorest currently erased filename information on the JSON examples.
 
 A candidate solution is to print the HTTP path, HTTP method, api-version, example name, operation group name, operation name (last 2 is likely redundant) in the comment block of the sample or md. And have a post-process to match it to Swagger.
 
