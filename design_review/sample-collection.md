@@ -15,7 +15,7 @@ Therefore, we might need another (private) repo for automation (configuration an
 ### Option 1 - Directly pull from SDK repo
 
 Step 1, when SDK team generates package with new version, it also generates the examples and upload to SDK repo as well.
-E.g. [an aggregated sample that composed by multiple samples](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/datafactory/azure-resourcemanager-datafactory/src/samples/java/com/azure/resourcemanager/datafactory/PipelinesCreateOrUpdateSamples.java)
+E.g. [an aggregated sample that composed by multiple SDK examples](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/datafactory/azure-resourcemanager-datafactory/src/samples/java/com/azure/resourcemanager/datafactory/PipelinesCreateOrUpdateSamples.java)
 
 For each example, a certain inline metadata is required. E.g.,
 ```
@@ -42,16 +42,17 @@ Generally the release tag contains the package name and version.
 
 This step should be fully automated.
 
-Documentation reference is something like below, so that customer can get to the SDK doc and start using it.
-```
-Read the [SDK documentation](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager_2.7.0/sdk/resourcemanager/README.md) on how to add the SDK to your project and authenticate.
-```
-
 Step 3, automation to collect the examples.
 
 Potentially it includes compiler and formatter, if there is requirement to break the aggregated SDK sample to multiple SDK examples.
 
 So that after break-down and re-construction of the examples, automation will verify compile pass, with correct formatting.
+
+Documentation reference is something like below, so that customer can get to the SDK doc and start using it.
+As usually the configuration of the project and required authentication is not included in the example.
+```
+Read the [SDK documentation](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager_2.7.0/sdk/resourcemanager/README.md) on how to add the SDK to your project and authenticate.
+```
 
 The final result could be like [this compute example in markdown](https://raw.githubusercontent.com/weidongxu-microsoft/azure-rest-api-specs-examples/8544933b1852081db8b26c9b1b44651029b757b0/specification/compute/resource-manager/Microsoft.Compute/stable/2021-04-01/examples-java/CreateACustomImageScaleSetFromAnUnmanagedGeneralizedOsImage.md).
 
@@ -72,6 +73,8 @@ Step 3, automation copy the "released" ones to the central repo.
 ## Design on "Step 3" of "Option 1"
 
 The plan is to follow the design for [SDK automation in swagger specs](https://github.com/Azure/azure-rest-api-specs/tree/main/documentation/sdkautomation).
+
+Automation runs on Ubuntu latest image.
 
 We will have central functionality implemented once.
 1. Find candidate release tags from SDK repo.
