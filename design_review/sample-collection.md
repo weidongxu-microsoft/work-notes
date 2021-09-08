@@ -12,9 +12,9 @@ Therefore, we might need another (private) repo for automation (configuration an
 
 ## Design on the process to publish and collect SDK examples
 
-### Option 1 - Directly pull from SDK repo
+### Stage 1: SDK generation
 
-Step 1, when SDK team generates package with new version, it also generates the examples and upload to SDK repo as well.
+When SDK team generates package with new version, it also generates the examples and upload to SDK repo as well.
 E.g. [an aggregated sample that composed by multiple SDK examples](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/datafactory/azure-resourcemanager-datafactory/src/samples/java/com/azure/resourcemanager/datafactory/PipelinesCreateOrUpdateSamples.java)
 
 For each example, a certain inline metadata is required. E.g.,
@@ -33,16 +33,18 @@ E.g. the [JSON example](https://github.com/Azure/azure-rest-api-specs/blob/maste
 
 Therefore, the automation is able to locate the JSON example file, and potentially break the aggregated sample and post its components to corresponding location to examples repo.
 
-This step is done by SDK. Only `x-ms-original-file` inline metadata is required.
+This step is done by SDK team. Only `x-ms-original-file` inline metadata is required.
 
-Step 2, when SDK team releases the new package, release pipeline will automatically create a new release tag.
+### Stage 2: SDK release
+
+When SDK team releases the new package, release pipeline will automatically create a new release tag.
 
 For instance, Java release tag is "azure-resourcemanager_2.7.0". Golang release tag is "storage/armstorage/v0.1.1".
 Generally the release tag contains the package name and version.
 
 This step should be fully automated.
 
-Step 3, automation to collect the examples.
+### Stage 3: Automation to collect the examples
 
 Potentially it includes compiler and formatter, if there is requirement to break the aggregated SDK sample to multiple SDK examples.
 
@@ -58,7 +60,7 @@ The final result could be like [this compute example in markdown](https://raw.gi
 
 This step is done by the automation, with possible plugin from language to help convert aggregated sample to the final markdown.
 
-### Option 2 - SDK push to intermediate repo
+### Alternative considered
 
 Step 1, when SDK team generates the package, it generates a specific version of the examples that matching the JSON example, and upload it to an intermediate repo.
 
@@ -70,16 +72,16 @@ Documentation reference is still required.
 
 Step 3, automation copy the "released" ones to the central repo.
 
-## Design on "Step 3" of "Option 1"
+## Design on the Automation to collect the examples
 
 The plan is to follow the design for [SDK automation in swagger specs](https://github.com/Azure/azure-rest-api-specs/tree/main/documentation/sdkautomation).
 
-Automation runs on Ubuntu latest image.
+Automation runs on Ubuntu 20.04 image.
 
 We will have central functionality implemented once.
-1. Find candidate release tags from SDK repo.
+1. Find candidate release tags from SDK repository.
 2. Prepare input, call script, parse output.
-3. If success, commit the output to example repo.
+3. If success, commit the output to example repository.
 
 In (2), language plugin as script will process the examples in the release tag, convert them to the final markdown, put them to target path.
 These plugins can be implemented by different language, consume customized configuration, and run customized logic, as long as it can have the desired output.
@@ -87,11 +89,70 @@ These plugins can be implemented by different language, consume customized confi
 A few thoughts on the plugin.
 1. Verify that the package is indeed released (for some SDK, it could happen that a release tag is created, but the follow-up package publish failed).
 2. Find the examples in the release tag.
-3. Break-down the aggregated sample and re-construction to the SDK example (one to one map of this example to JSON example).
+3. Break-down the aggregated sample and re-construction to the SDK example (one to one map of the result example to JSON example).
 4. Verify that the SDK example can pass compilation.
 5. Prepare the documentation reference.
 6. Make the final markdown by composing of the documentation reference and the SDK example.
-7. Output the markdown to its target location.
+7. Output the markdown to its intended location.
+
+### Details (draft)
+
+The automation will run as stateless job.
+
+The configuration on the automation looks like below:
+
+```json
+{
+  "sdkExample": {
+    "repository": "https://github.com/weidongxu-microsoft/azure-rest-api-specs-examples"
+  },
+  "sdkConfigurations": [
+    {
+      "name": "azure-sdk-for-java",
+      "repository": "https://github.com/Azure/azure-sdk-for-java",
+      "releaseTag": {
+        "regexMatch": "azure-resourcemanager.*_.+",
+        "packageRegexGroup": "(.*)_.*",
+        "versionRegexGroup": ".*_(.*)"
+      },
+      "script": {
+        "run": "java/main.sh"
+      }
+    }
+  ]
+}
+```
+
+For each plugin, defines the SDK repository and expected format of the release tag for management-plane SDK.
+Automation will get all the releases (within a few days, which can be controlled in pipeline), match the release tag pattern.
+
+For each of the matched release tag, automation prepare a temporary directory, checkout the SDK repository on release tag, create an `input.json`, and call the script to process it.
+
+A typical `input.json` would look like below:
+
+```json
+{
+  "specsPath":"/home/vsts/work/1/s/tmp/spec",
+  "sdkExamplesPath":"/home/vsts/work/1/s/tmp/tmpdxab6792/example",
+  "sdkPath":"/home/vsts/work/1/s/tmp/tmpdxab6792/sdk",
+  "tempPath":"/home/vsts/work/1/s/tmp/tmpdxab6792",
+  "release":{
+    "tag":"azure-resourcemanager-servicefabric_1.0.0-beta.2",
+    "package":"azure-resourcemanager-servicefabric",
+    "version":"1.0.0-beta.2"
+  }
+}
+```
+
+Plugin would be expected to parse the examples within the SDK repository (`sdkPath`), and generate markdowns to `sdkExamplesPath`.
+
+Plugin can output details to `output.json` for bookkeeping (the automation job is stateless, but it can be important to persist the information e.g. which markdown is for which SDK).
+The format and persistence of the `output.json` is TBD.
+
+After plugin reports success, automation will check the repository in `sdkExamplesPath`, and create GitHub pull request to merge the changes.
+It is possible that this release tag is already processed by a previous run of the automation (due to the stateless nature), in this case no changes and hence no pull request.
+
+Here are a few [pull requests](https://github.com/weidongxu-microsoft/azure-rest-api-specs-examples/pulls) created by the automation (proof of concept implementation) for Java SDK.
 
 ## TODO
 
