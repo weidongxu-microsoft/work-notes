@@ -26,51 +26,49 @@ npm install -g autorest gulp
 Prepare env
 
 ```
-export SPEC_ROOT=<path_to_swagger_spec>
 export AUTOREST_JAVA=<path_to_autorest_java_v4>
 ```
 
 E.g.
 ```
-export SPEC_ROOT=/c/github/azure-rest-api-specs
 export AUTOREST_JAVA=/c/github_fork/autorest.java
 ```
 
 Generate Java code (for all services)
 
 ```
-gulp codegen --projects features --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAVA
-gulp codegen --projects policy --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAVA --preserve
-gulp codegen --projects subscriptions --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAVA --preserve
-gulp codegen --projects resources --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAVA --preserve
+gulp codegen --projects features --autorest-java $AUTOREST_JAVA
+gulp codegen --projects policy --autorest-java $AUTOREST_JAVA --preserve
+gulp codegen --projects subscriptions --autorest-java $AUTOREST_JAVA --preserve
+gulp codegen --projects resources --autorest-java $AUTOREST_JAVA --preserve
 
-gulp codegen --projects storage --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAVA
+gulp codegen --projects storage --autorest-java $AUTOREST_JAVA
 
-gulp codegen --projects keyvault --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAVA
+gulp codegen --projects keyvault --autorest-java $AUTOREST_JAVA
 
-gulp codegen --projects graphrbac --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAVA
-gulp codegen --projects authorization --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAVA --preserve
+gulp codegen --projects graphrbac --autorest-java $AUTOREST_JAVA
+gulp codegen --projects authorization --autorest-java $AUTOREST_JAVA --preserve
 
-gulp codegen --projects msi --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAVA
+gulp codegen --projects msi --autorest-java $AUTOREST_JAVA
 
-gulp codegen --projects network --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAVA
-gulp codegen --projects compute --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAVA
+gulp codegen --projects network --autorest-java $AUTOREST_JAVA
+gulp codegen --projects compute --autorest-java $AUTOREST_JAVA
 
-gulp codegen --projects appservice --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAVA
-gulp codegen --projects containerregistry --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAVA
-gulp codegen --projects containerservice --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAVA
-gulp codegen --projects containerinstance --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAVA
-gulp codegen --projects cosmos --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAVA
-gulp codegen --projects dns --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAVA
-gulp codegen --projects privatedns --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAVA
-gulp codegen --projects monitor --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAVA
-gulp codegen --projects sql --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAVA
-gulp codegen --projects appplatform --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAVA
-gulp codegen --projects redis --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAVA
-gulp codegen --projects eventhubs --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAVA
-gulp codegen --projects trafficmanager --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAVA
-gulp codegen --projects servicebus --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAVA
-gulp codegen --projects cdn --spec-root $SPEC_ROOT --autorest-java $AUTOREST_JAVA
+gulp codegen --projects appservice --autorest-java $AUTOREST_JAVA
+gulp codegen --projects containerregistry --autorest-java $AUTOREST_JAVA
+gulp codegen --projects containerservice --autorest-java $AUTOREST_JAVA
+gulp codegen --projects containerinstance --autorest-java $AUTOREST_JAVA
+gulp codegen --projects cosmos --autorest-java $AUTOREST_JAVA
+gulp codegen --projects dns --autorest-java $AUTOREST_JAVA
+gulp codegen --projects privatedns --autorest-java $AUTOREST_JAVA
+gulp codegen --projects monitor --autorest-java $AUTOREST_JAVA
+gulp codegen --projects sql --autorest-java $AUTOREST_JAVA
+gulp codegen --projects appplatform --autorest-java $AUTOREST_JAVA
+gulp codegen --projects redis --autorest-java $AUTOREST_JAVA
+gulp codegen --projects eventhubs --autorest-java $AUTOREST_JAVA
+gulp codegen --projects trafficmanager --autorest-java $AUTOREST_JAVA
+gulp codegen --projects servicebus --autorest-java $AUTOREST_JAVA
+gulp codegen --projects cdn --autorest-java $AUTOREST_JAVA
 ```
 
 ### Script to generate code for Fluent Lite
