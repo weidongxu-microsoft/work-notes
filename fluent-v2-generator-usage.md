@@ -37,7 +37,8 @@ export AUTOREST_JAVA=/c/github/autorest.java
 Generate Java code (for all services)
 
 ```
-gulp codegen --projects features --autorest-java $AUTOREST_JAVA
+gulp codegen --projects locks --autorest-java $AUTOREST_JAVA
+gulp codegen --projects features --autorest-java $AUTOREST_JAVA --preserve
 gulp codegen --projects policy --autorest-java $AUTOREST_JAVA --preserve
 gulp codegen --projects subscriptions --autorest-java $AUTOREST_JAVA --preserve
 gulp codegen --projects resources --autorest-java $AUTOREST_JAVA --preserve
