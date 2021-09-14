@@ -31,7 +31,7 @@ export AUTOREST_JAVA=<path_to_autorest_java_v4>
 
 E.g.
 ```
-export AUTOREST_JAVA=/c/github_fork/autorest.java
+export AUTOREST_JAVA=/c/github/autorest.java
 ```
 
 Generate Java code (for all services)
