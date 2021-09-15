@@ -75,7 +75,7 @@ The plan is to follow the design for [SDK automation in swagger specs](https://g
 
 Automation runs on Ubuntu 20.04 image.
 
-We will have central functionality implemented once.
+We will have core functionality implemented once.
 1. Find candidate release tags from SDK repository.
 2. Prepare input, call script, parse output.
 3. If success, commit the output to example repository.
@@ -149,7 +149,15 @@ The format and persistence of the `output.json` is TBD.
 After plugin reports success, automation will check the repository in `sdkExamplesPath`, and create GitHub pull request to merge the changes.
 It is possible that this release tag is already processed by a previous run of the automation (due to the stateless nature), in this case no changes and hence no pull request.
 
-Here are a few [pull requests](https://github.com/weidongxu-microsoft/azure-rest-api-specs-examples/pulls) created by the automation (proof of concept implementation) for Java SDK.
+Here is the [PoC implementation](https://github.com/weidongxu-microsoft/azure-rest-api-specs-examples-automation/) of the automation and Java SDK integration.
+1. `automation` folder contains the shared core functionality.
+2. `java` folder contains script handling the Java SDK examples. 
+
+Here are a few [pull requests](https://github.com/weidongxu-microsoft/azure-rest-api-specs-examples/pulls) created by the automation (PoC implementation) for Java SDK.
+
+A few issues observed in PoC:
+1. Validation could take lots of time. Complication for each example could take a few seconds for Java. With some RP of thousands of examples, this could take long (thread pool not help much). We might prefer some hack to do this in batch mode.
+2. In some rare case, one run could pull 2 different version from a single package (if these version get released in short time). It could be a problem if the PR is configured as auto-merge.
 
 ## TODO
 
