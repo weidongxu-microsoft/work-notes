@@ -15,23 +15,20 @@ Therefore, we might need another (private) repo for automation (configuration an
 ### Stage 1: SDK generation
 
 When SDK team generates package with new version, it also generates the examples and upload to SDK repo as well.
-E.g. [an aggregated sample that composed by multiple SDK examples](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/datafactory/azure-resourcemanager-datafactory/src/samples/java/com/azure/resourcemanager/datafactory/PipelinesCreateOrUpdateSamples.java)
+E.g. [an aggregated sample that composed by multiple SDK examples](https://github.com/Azure/azure-sdk-for-java/blob/f007ab8/sdk/datafactory/azure-resourcemanager-datafactory/src/samples/java/com/azure/resourcemanager/datafactory/generated/PipelinesCreateOrUpdateSamples.java)
 
 For each example, a certain inline metadata is required. E.g.,
-```
-// operationId: VirtualMachineScaleSets_CreateOrUpdate
-// api-version: 2021-04-01
-// x-ms-examples: Create a custom-image scale set from an unmanaged generalized os image.
-```
-or
 ```
 // x-ms-original-file: specification/compute/resource-manager/Microsoft.Compute/stable/2021-04-01/examples/CreateACustomImageVmFromAnUnmanagedGeneralizedOsImage.json
 ```
 
-After modelerfour support (tracked via [modelerfour feature](https://github.com/Azure/autorest/issues/4251)), we only need the single line of `x-ms-original-file` as it points us to the location of the source JSON example.
+[AutoRest.Core 3.6.0 and Modeler Four 4.21.0](https://github.com/Azure/autorest/blob/main/packages/extensions/core/CHANGELOG.md#360) supports the `x-ms-original-file` extension under `x-ms-examples` extension.
+So it is not hard to transform Modeler Four output to this metadata in SDK examples.
+
+The inline metadata points us to the location of the source JSON example.
 E.g. the [JSON example](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/compute/resource-manager/Microsoft.Compute/stable/2021-04-01/examples/CreateACustomImageVmFromAnUnmanagedGeneralizedOsImage.json)
 
-Therefore, the automation is able to locate the JSON example file, and potentially break the aggregated sample and post its components to corresponding location to examples repo.
+This way, the automation is able to locate the JSON example file, and potentially break the aggregated sample and post its components to corresponding location to examples repository.
 
 This step is done by SDK team. Only `x-ms-original-file` inline metadata is required.
 
@@ -40,9 +37,9 @@ This step is done by SDK team. Only `x-ms-original-file` inline metadata is requ
 When SDK team releases the new package, release pipeline will automatically create a new release tag.
 
 For instance, Java release tag is "azure-resourcemanager_2.7.0". Golang release tag is "storage/armstorage/v0.1.1".
-Generally the release tag contains the package name and version.
+Generally the release tag contains the package/module name and version.
 
-This step should be fully automated.
+This step is already fully automated via release pipeline.
 
 ### Stage 3: Automation to collect the examples
 
@@ -62,7 +59,7 @@ This step is done by the automation, with possible plugin from language to help 
 
 ### Alternative considered
 
-Step 1, when SDK team generates the package, it generates a specific version of the examples that matching the JSON example, and upload it to an intermediate repo.
+Step 1, when SDK team generates the package, it generates a specific version of the examples that matching the JSON example, and upload it to an intermediate repository.
 
 But flag it as "not released".
 
