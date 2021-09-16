@@ -155,15 +155,36 @@ Here is the [PoC implementation](https://github.com/weidongxu-microsoft/azure-re
 
 Here are a few [pull requests](https://github.com/weidongxu-microsoft/azure-rest-api-specs-examples/pulls) created by the automation (PoC implementation) for Java SDK.
 
-A few issues observed in PoC:
-1. Validation could take lots of time. Complication for each example could take a few seconds for Java. With some RP of thousands of examples, this could take long (thread pool not help much). We might prefer some hack to do this in batch mode.
+### A few issues observed in PoC
+
+1. Validation could take lots of time. Complication for each example could take a few seconds for Java. With some RP of thousands of examples, this could take long (thread pool helps but not much).
 2. In some rare case, one run could pull 2 different version from a single package (if these version get released in short time). It could be a problem if the PR is configured as auto-merge.
+
+### What information during collection need persistence
+
+This depends on what devs might query.
+
+Task: update markdown of certain SDK versions. E.g. update markdown to notify availability of a newer SDK; notify that certain SDK or version is deprecated.
+Query: all example files belonging to a certain SDK version.
+Requirement: table of file + SDK info.
+
+Task: update markdown when JSON example is modified.
+Query: the SDK corresponding to the example, and its AutoRest command.
+Requirement: table of file + SDK info, and SDK info contains the AutoRest command.
+
+Task: clean up markdown that no longer match to JSON example (e.g. JSON example could be deleted).
+Alternative: this could be handled by a background job, instead of query.
+
+So far, it appears that a table of file + SDK info would satisfy basic query requirements.
+
+As reference, current "Azure/azure-rest-api-specs" repository contains about 60,000 JSON examples.
+Therefore, we would expect "Azure/azure-rest-api-specs-examples" would eventually contain similar number of files (could be 1 order more, as it contains examples from multiple languages).
 
 ## TODO
 
 ### Issue 1
 
-The case that the SDK example is outdated. For example, service might ping the REST API to 2020-02-01, but their service and SDK is on 2021-06-01.
+The case that the SDK example is outdated. For example, service might pin the REST API to 2020-02-01, but their service and SDK is on 2021-06-01.
 Even if they change/fix swagger for api-version 2020-02-01, SDK might not ever re-release for 2020-02-01 again.
 
 For now, we probably do not have good solution, except try to ask service to update their REST API doc configuration to move to later api-version.
@@ -180,7 +201,7 @@ The latest SDK is [2.7.0](https://github.com/Azure/azure-sdk-for-java/blob/azure
 The case that service only update JSON example, but did not touch swagger specs.
 
 Ideal solution would to have another automation to catch this and re-generate SDK examples.
-For this, we will need to ping down all the parameter (of autorest) to create that SDK.
+For this, we will need to pin down all the parameter (of AutoRest) to create that SDK.
 If possible we should also ping down the swagger JSON (in case the tag in README is modified).
 
 Currently, this is available in some SDK but not all of them.
