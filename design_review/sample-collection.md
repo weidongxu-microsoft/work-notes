@@ -22,7 +22,7 @@ For each example, a certain inline metadata is required. E.g.,
 // x-ms-original-file: specification/compute/resource-manager/Microsoft.Compute/stable/2021-04-01/examples/CreateACustomImageVmFromAnUnmanagedGeneralizedOsImage.json
 ```
 
-[AutoRest.Core 3.6.0 and Modeler Four 4.21.0](https://github.com/Azure/autorest/blob/main/packages/extensions/core/CHANGELOG.md#360) supports the `x-ms-original-file` extension under `x-ms-examples` extension.
+[AutoRest.Core 3.6.0 and Modeler Four 4.21.0](https://github.com/Azure/autorest/blob/main/packages/extensions/core/CHANGELOG.md#360) supports the `x-ms-original-file` extension under `x-ms-examples` extension, given option `modelerfour.include-x-ms-examples-original-file=true`.
 So it is not hard to transform Modeler Four output to this metadata in SDK examples.
 
 The inline metadata points us to the location of the source JSON example.
