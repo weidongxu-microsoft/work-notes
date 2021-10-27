@@ -205,3 +205,11 @@ For this, we will need to pin down all the parameter (of AutoRest) to create tha
 If possible we should also ping down the swagger JSON (in case the tag in README is modified).
 
 Currently, this is available in some SDK but not all of them.
+
+### Issue 3
+
+The case that developer generate the SDK based on swagger not on specs main branch (e.g. a dev branch, or the private repository).
+
+If the swagger eventually will be merged to specs main, we should be fine.
+
+If the swagger will not be merged to specs main (a very unlikely case), developer can use option `modelerfour.include-x-ms-examples-original-file=false` to disable the `x-ms-original-file` metadata.
