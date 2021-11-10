@@ -212,4 +212,4 @@ The case that developer generate the SDK based on swagger not on specs main bran
 
 If the swagger eventually will be merged to specs main, we should be fine.
 
-If the swagger will not be merged to specs main (a very unlikely case), developer can use option `modelerfour.include-x-ms-examples-original-file=false` to disable the `x-ms-original-file` metadata.
+If the swagger will not be merged to specs main (a very unlikely case), developer can use option `include-x-ms-examples-original-file=false` to disable the `x-ms-original-file` metadata.
