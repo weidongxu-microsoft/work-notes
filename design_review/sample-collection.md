@@ -106,6 +106,7 @@ The configuration on the automation looks like below:
   "sdkConfigurations": [
     {
       "name": "azure-sdk-for-java",
+      "language": "java",
       "repository": "https://github.com/Azure/azure-sdk-for-java",
       "releaseTag": {
         "regexMatch": "azure-resourcemanager.*_.+",
