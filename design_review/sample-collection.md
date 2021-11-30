@@ -36,7 +36,7 @@ This step is done by SDK team. Only `x-ms-original-file` inline metadata is requ
 
 When SDK team releases the new package, release pipeline will automatically create a new release tag.
 
-For instance, Java release tag is "azure-resourcemanager_2.7.0". Golang release tag is "storage/armstorage/v0.1.1".
+For instance, Java release tag is "azure-resourcemanager_2.7.0". Go release tag is "sdk/resourcemanager/containerservice/armcontainerservice/v0.2.1".
 Generally the release tag contains the package/module name and version.
 
 This step is already fully automated via release pipeline.
@@ -53,7 +53,7 @@ As usually the configuration of the project and required authentication is not i
 Read the [SDK documentation](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager_2.7.0/sdk/resourcemanager/README.md) on how to add the SDK to your project and authenticate.
 ```
 
-The final result could be like [this compute example in markdown](https://raw.githubusercontent.com/weidongxu-microsoft/azure-rest-api-specs-examples/8544933b1852081db8b26c9b1b44651029b757b0/specification/compute/resource-manager/Microsoft.Compute/stable/2021-04-01/examples-java/CreateACustomImageScaleSetFromAnUnmanagedGeneralizedOsImage.md).
+The final result could be like [this compute example in markdown](https://github.com/weidongxu-microsoft/azure-rest-api-specs-examples/blob/main/specification/compute/resource-manager/Microsoft.Compute/stable/2021-07-01/examples-java/compute/CreateACustomImageScaleSetFromAnUnmanagedGeneralizedOsImage.md).
 
 This step is done by the automation, with possible plugin from language to help convert aggregated sample to the final markdown.
 
@@ -144,22 +144,39 @@ A typical `input.json` would look like below:
 
 Plugin would be expected to parse the examples within the SDK repository (`sdkPath`), and generate markdowns to `sdkExamplesPath`.
 
-Plugin can output details to `output.json` for bookkeeping (the automation job is stateless, but it can be important to persist the information e.g. which markdown is for which SDK).
-The format and persistence of the `output.json` is TBD.
+Plugin can output details to `output.json`.
+
+A typical `output.json` would look like below:
+
+```json
+{
+  "status":"succeeded",
+  "name":"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/containerservice/armcontainerservice@v0.2.1"
+}
+```
+
+`status` could be `succeeded` or `failed`.
+`name` is used for bookkeeping. Changed files will be picked-up by `git status`.
+
+Automation treats a plugin completed without error and without `output.json` as `succeeded`.
 
 After plugin reports success, automation will check the repository in `sdkExamplesPath`, and create GitHub pull request to merge the changes.
 It is possible that this release tag is already processed by a previous run of the automation (due to the stateless nature), in this case no changes and hence no pull request.
 
-Here is the [PoC implementation](https://github.com/weidongxu-microsoft/azure-rest-api-specs-examples-automation/) of the automation and Java SDK integration.
+Here is the [PoC implementation](https://github.com/weidongxu-microsoft/azure-rest-api-specs-examples-automation/) of the automation and Java/Go SDK integration.
 1. `automation` folder contains the shared core functionality.
 2. `java` folder contains script handling the Java SDK examples. 
+3. `go` folder contains script handling the Go SDK examples.
 
-Here are a few [pull requests](https://github.com/weidongxu-microsoft/azure-rest-api-specs-examples/pulls) created by the automation (PoC implementation) for Java SDK.
+Here are a few [pull requests](https://github.com/weidongxu-microsoft/azure-rest-api-specs-examples/pulls) created by the automation (PoC implementation) for SDK.
 
 ### A few issues observed in PoC
 
 1. Validation could take lots of time. Complication for each example could take a few seconds for Java. With some RP of thousands of examples, this could take long (thread pool helps but not much).
 2. In some rare case, one run could pull 2 different version from a single package (if these version get released in short time). It could be a problem if the PR is configured as auto-merge.
+
+For the former issue, approach of batch validation is used whenever possible.
+For example, Java and Go plugin will put all examples in one project folder, build them all, and check if any failure.
 
 ### What information during collection need persistence
 
@@ -180,6 +197,37 @@ So far, it appears that a table of file + SDK info would satisfy basic query req
 
 As reference, current "Azure/azure-rest-api-specs" repository contains about 60,000 JSON examples.
 Therefore, we would expect "Azure/azure-rest-api-specs-examples" would eventually contain similar number of files (could be 1 order more, as it contains examples from multiple languages).
+
+Maintains information on releases and files.
+
+Table schema:
+
+```sql
+create table release (
+    id          integer         not null primary key,
+    name        varchar(255)    not null,
+    language    varchar(255)    not null,
+    tag         varchar(255)    not null,
+    package     varchar(255)    not null,
+    version     varchar(255)    not null,
+    date_epoch  integer         not null,
+
+    unique(name, language)
+)
+
+create index release_idx1 on release(language, package, version)
+
+create table file (
+    id          integer         not null primary key,
+    file        varchar(511)    not null,
+    release_id  integer         not null,
+
+    foreign key(release_id) references release(id)
+        on delete cascade
+
+    unique(file)
+)
+```
 
 ## TODO
 
