@@ -53,7 +53,7 @@ As usually the configuration of the project and required authentication is not i
 Read the [SDK documentation](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager_2.7.0/sdk/resourcemanager/README.md) on how to add the SDK to your project and authenticate.
 ```
 
-The final result could be like [this compute example in markdown](https://github.com/weidongxu-microsoft/azure-rest-api-specs-examples/blob/main/specification/compute/resource-manager/Microsoft.Compute/stable/2021-07-01/examples-java/compute/CreateACustomImageScaleSetFromAnUnmanagedGeneralizedOsImage.md).
+The final result could be like [this compute example in markdown](https://github.com/Azure/azure-rest-api-specs-examples/blob/main/specification/compute/resource-manager/Microsoft.Compute/stable/2021-07-01/examples-java/compute/CreateACustomImageScaleSetFromAnUnmanagedGeneralizedOsImage.md).
 
 This step is done by the automation, with possible plugin from language to help convert aggregated sample to the final markdown.
 
@@ -168,7 +168,7 @@ Here is the [PoC implementation](https://github.com/weidongxu-microsoft/azure-re
 2. `java` folder contains script handling the Java SDK examples. 
 3. `go` folder contains script handling the Go SDK examples.
 
-Here are a few [pull requests](https://github.com/weidongxu-microsoft/azure-rest-api-specs-examples/pulls) created by the automation (PoC implementation) for SDK.
+Here are a few [pull requests](https://github.com/Azure/azure-rest-api-specs-examples/pulls) created by the automation (PoC implementation) for SDK.
 
 ### A few issues observed in PoC
 
