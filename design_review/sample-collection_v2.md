@@ -2,13 +2,23 @@
 
 ## Goal for the repository that will be pulled by MSDocs team
 
-Currently, the repo name will be "Azure/azure-rest-api-specs-examples".
+The repository is [Azure/azure-rest-api-specs-examples](https://github.com/Azure/azure-rest-api-specs-examples).
 
 1. Same folder structure as azure-rest-api-specs
 2. Only examples of the released SDK will be uploaded
 3. Keep it minimal
 
-Therefore, we might need another (private) repo for automation (configuration and tooling, etc.).
+The repository serves as derived data. The truth resides in each SDK repository at each release tag.
+And if necessary, it is possible to re-create the whole repository from SDK repositories (though it could take days).
+
+At present, collection from Go and Java SDK is prototyped.
+
+## Automation repository
+
+As one of the goal is to keep Azure/azure-rest-api-specs-examples simple, we need another (private) repository for code on automation (configuration and tooling, etc.).
+
+Currently it is at [azure-rest-api-specs-examples-automation](https://github.com/weidongxu-microsoft/azure-rest-api-specs-examples-automation).
+It will be moved to e.g. Microsoft organization later.
 
 ## Design on the process to publish and collect SDK examples
 
@@ -168,7 +178,7 @@ Here is the [PoC implementation](https://github.com/weidongxu-microsoft/azure-re
 2. `java` folder contains script handling the Java SDK examples. 
 3. `go` folder contains script handling the Go SDK examples.
 
-Here are a few [pull requests](https://github.com/Azure/azure-rest-api-specs-examples/pulls) created by the automation (PoC implementation) for SDK.
+Here are a few [pull requests](https://github.com/Azure/azure-rest-api-specs-examples/pulls?q=is%3Apr+is%3Aclosed) created by the automation (PoC implementation) for SDK.
 
 ### A few issues observed in PoC
 
