@@ -11,6 +11,8 @@ The repository is [Azure/azure-rest-api-specs-examples](https://github.com/Azure
 The repository serves as derived data. The truth resides in each SDK repository at each release tag.
 And if necessary, it is possible to re-create the whole repository from SDK repositories (though it could take days).
 
+We expect MSDocs team will generate final result similar to [Microsoft Graph](https://docs.microsoft.com/graph/api/user-post-events?view=graph-rest-1.0&tabs=http#examples).
+
 At present, collection from Go and Java SDK is prototyped.
 
 ## Automation repository
@@ -21,6 +23,11 @@ Currently it is at [azure-rest-api-specs-examples-automation](https://github.com
 It will be moved to e.g. Microsoft organization later.
 
 ## Design on the process to publish and collect SDK examples
+
+```mermaid
+flowchart LR
+  sdk[SDK generation with examples] --> release[SDK release] --> collection[Automation collect SDK examples]
+```
 
 ### Stage 1: SDK generation
 
@@ -81,17 +88,23 @@ Step 3, automation copy the "released" ones to the central repo.
 
 ## Design on the Automation to collect the examples
 
-The plan is to follow the design for [SDK automation in swagger specs](https://github.com/Azure/azure-rest-api-specs/tree/main/documentation/sdkautomation).
-
 Automation runs on Ubuntu 20.04 image.
+It runs as a batch job.
 
-We will have core functionality implemented once.
+Core functionality is implemented once.
 1. Find candidate release tags from SDK repository.
 2. Prepare input, call script, parse output.
-3. If success, commit the output to example repository.
+3. If success, commit the output to example repository, also update database.
+
+In (1), currently the batch job is configured as daily job, and it pulls release tag within 3 days, for simple fault-tolerance.
 
 In (2), language plugin as script will process the examples in the release tag, convert them to the final markdown, put them to target path.
 These plugins can be implemented by different language, consume customized configuration, and run customized logic, as long as it can have the desired output.
+
+```mermaid
+flowchart TD
+  github_repo[GitHub repository] --> release_tag[Find release tag] --> package_version[Extract package and version] --> prepare_env[Prepare environment for plugin] --> invoke_plugin[Invoke plugin] --> create_pr[Create pull request] --> update_db[Update database]
+```
 
 A few thoughts on the plugin.
 1. Verify that the package is indeed released (for some SDK, it could happen that a release tag is created, but the follow-up package publish failed).
@@ -102,7 +115,12 @@ A few thoughts on the plugin.
 6. Make the final markdown by composing of the documentation reference and the SDK example.
 7. Output the markdown to its intended location.
 
-### Details (draft)
+```mermaid
+flowchart TD
+  find_package_location[Find package location] --> find_examples[Find SDK examples with metadata] --> breakdown_reformat[Break-down and re-format] --> verification[Verification: compilation or lint] --> markdown[Generate markdown with documentation reference]
+```
+
+### Details
 
 The automation will run as stateless job.
 
