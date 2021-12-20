@@ -129,7 +129,7 @@ The configuration on the automation looks like below:
 ```json
 {
   "sdkExample": {
-    "repository": "https://github.com/weidongxu-microsoft/azure-rest-api-specs-examples"
+    "repository": "https://github.com/Azure/azure-rest-api-specs-examples"
   },
   "sdkConfigurations": [
     {
