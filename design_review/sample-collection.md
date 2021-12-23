@@ -2,15 +2,32 @@
 
 ## Goal for the repository that will be pulled by MSDocs team
 
-Currently, the repo name will be "Azure/azure-rest-api-specs-examples".
+The repository is [Azure/azure-rest-api-specs-examples](https://github.com/Azure/azure-rest-api-specs-examples).
 
 1. Same folder structure as azure-rest-api-specs
 2. Only examples of the released SDK will be uploaded
 3. Keep it minimal
 
-Therefore, we might need another (private) repo for automation (configuration and tooling, etc.).
+The repository serves as derived data. The truth resides in each SDK repository at each release tag.
+And if necessary, it is possible to re-create the whole repository from SDK repositories (though it could take days).
+
+We expect MSDocs team will generate final result similar to [Microsoft Graph](https://docs.microsoft.com/graph/api/user-post-events?view=graph-rest-1.0&tabs=http#examples).
+
+At present, collection from Go and Java SDK is prototyped.
+
+## Automation repository
+
+As one of the goal is to keep Azure/azure-rest-api-specs-examples simple, we need another (private) repository for code on automation (configuration and tooling, etc.).
+
+Currently it is at [azure-rest-api-specs-examples-automation](https://github.com/weidongxu-microsoft/azure-rest-api-specs-examples-automation).
+It will be moved to e.g. Microsoft organization later.
 
 ## Design on the process to publish and collect SDK examples
+
+```mermaid
+flowchart LR
+  sdk[SDK generation with examples] --> release[SDK release] --> collection[Automation collect SDK examples]
+```
 
 ### Stage 1: SDK generation
 
@@ -71,17 +88,23 @@ Step 3, automation copy the "released" ones to the central repo.
 
 ## Design on the Automation to collect the examples
 
-The plan is to follow the design for [SDK automation in swagger specs](https://github.com/Azure/azure-rest-api-specs/tree/main/documentation/sdkautomation).
-
 Automation runs on Ubuntu 20.04 image.
+It runs as a batch job.
 
-We will have core functionality implemented once.
+Core functionality is implemented once.
 1. Find candidate release tags from SDK repository.
 2. Prepare input, call script, parse output.
-3. If success, commit the output to example repository.
+3. If success, commit the output to example repository, also update database.
+
+In (1), currently the batch job is configured as daily job, and it pulls release tag within 3 days, for simple fault-tolerance.
 
 In (2), language plugin as script will process the examples in the release tag, convert them to the final markdown, put them to target path.
 These plugins can be implemented by different language, consume customized configuration, and run customized logic, as long as it can have the desired output.
+
+```mermaid
+flowchart TD
+  github_repo[GitHub repository] --> release_tag[Find release tag] --> package_version[Extract package and version] --> prepare_env[Prepare environment for plugin] --> invoke_plugin[Invoke plugin] --> create_pr[Create pull request] --> update_db[Update database]
+```
 
 A few thoughts on the plugin.
 1. Verify that the package is indeed released (for some SDK, it could happen that a release tag is created, but the follow-up package publish failed).
@@ -92,7 +115,12 @@ A few thoughts on the plugin.
 6. Make the final markdown by composing of the documentation reference and the SDK example.
 7. Output the markdown to its intended location.
 
-### Details (draft)
+```mermaid
+flowchart TD
+  find_package_location[Find package location] --> find_examples[Find SDK examples with metadata] --> breakdown_reformat[Break-down and re-format] --> verification[Verification: compilation or lint] --> markdown[Generate markdown with documentation reference]
+```
+
+### Details
 
 The automation will run as stateless job.
 
@@ -101,7 +129,7 @@ The configuration on the automation looks like below:
 ```json
 {
   "sdkExample": {
-    "repository": "https://github.com/weidongxu-microsoft/azure-rest-api-specs-examples"
+    "repository": "https://github.com/Azure/azure-rest-api-specs-examples"
   },
   "sdkConfigurations": [
     {
@@ -168,7 +196,7 @@ Here is the [PoC implementation](https://github.com/weidongxu-microsoft/azure-re
 2. `java` folder contains script handling the Java SDK examples. 
 3. `go` folder contains script handling the Go SDK examples.
 
-Here are a few [pull requests](https://github.com/Azure/azure-rest-api-specs-examples/pulls) created by the automation (PoC implementation) for SDK.
+Here are a few [pull requests](https://github.com/Azure/azure-rest-api-specs-examples/pulls?q=is%3Apr+is%3Aclosed) created by the automation (PoC implementation) for SDK.
 
 ### A few issues observed in PoC
 
