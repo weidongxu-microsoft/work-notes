@@ -13,7 +13,38 @@ And if necessary, it is possible to re-create the whole repository from SDK repo
 
 We expect MSDocs team will generate final result similar to [Microsoft Graph](https://docs.microsoft.com/graph/api/user-post-events?view=graph-rest-1.0&tabs=http#examples).
 
-At present, collection from Go and Java SDK is prototyped.
+At present, collection from [Go](https://github.com/Azure/azure-sdk-for-go), [Java](https://github.com/Azure/azure-sdk-for-java), and [JavaScript](https://github.com/Azure/azure-sdk-for-js) SDK is prototyped.
+
+## Specification on Azure/azure-rest-api-specs-examples
+
+Mapping rule of filename from examples from azure-rest-api-specs to azure-rest-api-specs-examples.
+1. Replace `.json` with `.md` in file extension.
+2. Replace `/examples/` with language specific of `/examples-<language>/`.
+
+Currently supported `language` includes:
+* `go` for Go
+* `java` for Java
+* `js` for JavaScript
+
+Pending:
+* `python` for Python
+* `dotnet` for .NET
+
+For example, filename
+```
+specification/datafactory/resource-manager/Microsoft.DataFactory/stable/2018-06-01/examples/DataFlows_Create.json
+```
+in azure-rest-api-specs would map to filename (language=java) 
+```
+specification/datafactory/resource-manager/Microsoft.DataFactory/stable/2018-06-01/examples-java/DataFlows_Create.md
+```
+in azure-rest-api-specs-examples.
+
+It is possible that for some api-version in some resource provider, there is no corresponding SDK example file, for some language.
+Typical reason is that either the SDK of that language is not released, or the released SDK does not generate examples.
+
+There is also possibility of missing a few SDK examples in a release.
+Typical reason could be that SDK specifically removed a portion of the APIs, or the JSON example is considered not correct (e.g. some required parameter/property is not provided in JSON).
 
 ## Automation repository
 
