@@ -38,7 +38,7 @@ Generate Java code (for all services)
 
 ```
 gulp codegen --projects changes --autorest-java $AUTOREST_JAVA
-gulp codegen --projects locks --autorest-java $AUTOREST_JAVA
+gulp codegen --projects locks --autorest-java $AUTOREST_JAVA --preserve
 gulp codegen --projects features --autorest-java $AUTOREST_JAVA --preserve
 gulp codegen --projects policy --autorest-java $AUTOREST_JAVA --preserve
 gulp codegen --projects subscriptions --autorest-java $AUTOREST_JAVA --preserve
