@@ -112,3 +112,13 @@ Alternative to file upload, service can use [Bring Your Own Storage](https://git
 ### Conversion of required parameter to optional parameter
 
 ### Addition of content-type
+
+# Appendix
+
+Quick-start guide for data-plane generator:
+- [.NET](https://aka.ms/azsdk/dpcodegen/net)
+- [Python](https://aka.ms/azsdk/dpcodegen/python)
+- [Java](https://aka.ms/azsdk/dpcodegen/python)
+- [Javascript](https://aka.ms/azsdk/rlc/js)
+
+Guide on changes after SDK arch board review: [Archboard DPG/RLC feedback loop](https://aka.ms/azsdk/swagger-update)
