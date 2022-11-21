@@ -48,7 +48,7 @@ gulp codegen --projects storage --autorest-java $AUTOREST_JAVA
 
 gulp codegen --projects keyvault --autorest-java $AUTOREST_JAVA
 
-gulp codegen --projects graphrbac --autorest-java $AUTOREST_JAVA
+gulp codegen --projects msgraph --autorest-java $AUTOREST_JAVA
 gulp codegen --projects authorization --autorest-java $AUTOREST_JAVA --preserve
 
 gulp codegen --projects msi --autorest-java $AUTOREST_JAVA
