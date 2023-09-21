@@ -23,7 +23,9 @@ Ref:
 | ARM id | `"format": "arm-id"`, `x-ms-arm-id-details` | | Question | Do we have equivalent in TypeSpec? Currently seems only .NET codegen uses it. |
 | Secret | `x-ms-secret` | `@visibility` without "read" | Solved |
 | Date type | `"format": "date-time"` etc. | `utcDateTime` type, `offsetDateTime` type, `@encode(DateTimeKnownEncoding.unixTimestamp, int64)` etc. | Solved |
-| UUID | `"format": "uuid"` | `@format("uuid")`? | Question |
+| UUID | `"format": "uuid"` | `Azure.Core.uuid` | Solved | `Azure.Core.eTag`, `Azure.Core.ipV4Address`, `Azure.Core.ipV6Address` |
+
+There are a few items like "azure-location" or "resource-type" in .NET "autorest.md", that might also need clarify.
 
 ## Uncommon
 
