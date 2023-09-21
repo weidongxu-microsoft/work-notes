@@ -19,9 +19,18 @@ Ref:
 | Error response | `default` or `x-ms-error-response` | `@error` | Solved |
 | Pageable | `x-ms-pageable` | `@pagedResult` | Solved |
 | Nullable | `x-nullable` | `p?: Type` or `p: Type \| null` | Solved |
-| ARM resource model | `x-ms-azure-resource` | `@armResourceInternal`? | Question | Can it be dropped from codegen? |
-| ARM id | `x-ms-arm-id-details` | | Question | Do we have equivalent in TypeSpec? Currently seems only .NET codegen uses it. |
+| ARM resource model | `x-ms-azure-resource` | `@armResourceInternal`? | Question | Any codegen uses it? Can it be dropped from codegen? |
+| ARM id | `"format": "arm-id"`, `x-ms-arm-id-details` | | Question | Do we have equivalent in TypeSpec? Currently seems only .NET codegen uses it. |
 | Secret | `x-ms-secret` | `@visibility` without "read" | Solved |
+| Date type | `"format": "date-time"` etc. | `utcDateTime` type, `offsetDateTime` type, `@encode(DateTimeKnownEncoding.unixTimestamp, int64)` etc. | Solved |
+| UUID | `"format": "uuid"` | `@format("uuid")`? | Question |
+
+## Uncommon
+
+| Feature | Swagger | TypeSpec | State | Comments |
+| --- | --- | --- | --- | --- |
+| Password | `"format": "password"` | | Question | Any codegen uses it? |
+| Data factory expression | `"x-ms-format": "dfe-string"` etc. | `Union`? `@encode`? | Question | Only in DataFactory |
 
 ## May not need to support in Ge
 
