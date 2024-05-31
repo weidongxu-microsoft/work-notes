@@ -23,55 +23,42 @@ npm install -g autorest gulp
 
 ### Script to generate code for Fluent Premium
 
-Prepare env
-
 ```
-export AUTOREST_JAVA=<path_to_autorest_java_v4>
-```
+gulp codegen --projects changes
+gulp codegen --projects locks --preserve
+gulp codegen --projects features --preserve
+gulp codegen --projects policy --preserve
+gulp codegen --projects subscriptions --preserve
+gulp codegen --projects resources --preserve
+gulp codegen --projects deploymentstacks --preserve
 
-E.g.
-```
-export AUTOREST_JAVA=/c/github/autorest.java
-```
+gulp codegen --projects storage
 
-Generate Java code (for all services)
+gulp codegen --projects keyvault
 
-```
-gulp codegen --projects changes --autorest-java $AUTOREST_JAVA
-gulp codegen --projects deploymentstacks --autorest-java $AUTOREST_JAVA --preserve
-gulp codegen --projects locks --autorest-java $AUTOREST_JAVA --preserve
-gulp codegen --projects features --autorest-java $AUTOREST_JAVA --preserve
-gulp codegen --projects policy --autorest-java $AUTOREST_JAVA --preserve
-gulp codegen --projects subscriptions --autorest-java $AUTOREST_JAVA --preserve
-gulp codegen --projects resources --autorest-java $AUTOREST_JAVA --preserve
+gulp codegen --projects msgraph
+gulp codegen --projects authorization --preserve
 
-gulp codegen --projects storage --autorest-java $AUTOREST_JAVA
+gulp codegen --projects msi
 
-gulp codegen --projects keyvault --autorest-java $AUTOREST_JAVA
+gulp codegen --projects network
+gulp codegen --projects compute
 
-gulp codegen --projects msgraph --autorest-java $AUTOREST_JAVA
-gulp codegen --projects authorization --autorest-java $AUTOREST_JAVA --preserve
-
-gulp codegen --projects msi --autorest-java $AUTOREST_JAVA
-
-gulp codegen --projects network --autorest-java $AUTOREST_JAVA
-gulp codegen --projects compute --autorest-java $AUTOREST_JAVA
-
-gulp codegen --projects appservice --autorest-java $AUTOREST_JAVA
-gulp codegen --projects containerregistry --autorest-java $AUTOREST_JAVA
-gulp codegen --projects containerservice --autorest-java $AUTOREST_JAVA
-gulp codegen --projects containerinstance --autorest-java $AUTOREST_JAVA
-gulp codegen --projects cosmos --autorest-java $AUTOREST_JAVA
-gulp codegen --projects dns --autorest-java $AUTOREST_JAVA
-gulp codegen --projects privatedns --autorest-java $AUTOREST_JAVA
-gulp codegen --projects monitor --autorest-java $AUTOREST_JAVA
-gulp codegen --projects sql --autorest-java $AUTOREST_JAVA
-gulp codegen --projects appplatform --autorest-java $AUTOREST_JAVA
-gulp codegen --projects redis --autorest-java $AUTOREST_JAVA
-gulp codegen --projects eventhubs --autorest-java $AUTOREST_JAVA
-gulp codegen --projects trafficmanager --autorest-java $AUTOREST_JAVA
-gulp codegen --projects servicebus --autorest-java $AUTOREST_JAVA
-gulp codegen --projects cdn --autorest-java $AUTOREST_JAVA
+gulp codegen --projects appservice
+gulp codegen --projects containerregistry
+gulp codegen --projects containerservice
+gulp codegen --projects containerinstance
+gulp codegen --projects cosmos
+gulp codegen --projects dns
+gulp codegen --projects privatedns
+gulp codegen --projects monitor
+gulp codegen --projects sql
+gulp codegen --projects appplatform
+gulp codegen --projects redis
+gulp codegen --projects eventhubs
+gulp codegen --projects trafficmanager
+gulp codegen --projects servicebus
+gulp codegen --projects cdn
 ```
 
 ### Script to generate code for Fluent Lite
