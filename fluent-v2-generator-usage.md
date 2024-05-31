@@ -18,47 +18,46 @@ Prepare nodejs
 
 ```
 npm install
-npm install -g autorest gulp
 ```
 
 ### Script to generate code for Fluent Premium
 
 ```
-gulp codegen --projects changes
-gulp codegen --projects locks --preserve
-gulp codegen --projects features --preserve
-gulp codegen --projects policy --preserve
-gulp codegen --projects subscriptions --preserve
-gulp codegen --projects resources --preserve
-gulp codegen --projects deploymentstacks --preserve
+npx gulp codegen --projects changes
+npx gulp codegen --projects locks --preserve
+npx gulp codegen --projects features --preserve
+npx gulp codegen --projects policy --preserve
+npx gulp codegen --projects subscriptions --preserve
+npx gulp codegen --projects resources --preserve
+npx gulp codegen --projects deploymentstacks --preserve
 
-gulp codegen --projects storage
+npx gulp codegen --projects storage
 
-gulp codegen --projects keyvault
+npx gulp codegen --projects keyvault
 
-gulp codegen --projects msgraph
-gulp codegen --projects authorization --preserve
+npx gulp codegen --projects msgraph
+npx gulp codegen --projects authorization --preserve
 
-gulp codegen --projects msi
+npx gulp codegen --projects msi
 
-gulp codegen --projects network
-gulp codegen --projects compute
+npx gulp codegen --projects network
+npx gulp codegen --projects compute
 
-gulp codegen --projects appservice
-gulp codegen --projects containerregistry
-gulp codegen --projects containerservice
-gulp codegen --projects containerinstance
-gulp codegen --projects cosmos
-gulp codegen --projects dns
-gulp codegen --projects privatedns
-gulp codegen --projects monitor
-gulp codegen --projects sql
-gulp codegen --projects appplatform
-gulp codegen --projects redis
-gulp codegen --projects eventhubs
-gulp codegen --projects trafficmanager
-gulp codegen --projects servicebus
-gulp codegen --projects cdn
+npx gulp codegen --projects appservice
+npx gulp codegen --projects containerregistry
+npx gulp codegen --projects containerservice
+npx gulp codegen --projects containerinstance
+npx gulp codegen --projects cosmos
+npx gulp codegen --projects dns
+npx gulp codegen --projects privatedns
+npx gulp codegen --projects monitor
+npx gulp codegen --projects sql
+npx gulp codegen --projects appplatform
+npx gulp codegen --projects redis
+npx gulp codegen --projects eventhubs
+npx gulp codegen --projects trafficmanager
+npx gulp codegen --projects servicebus
+npx gulp codegen --projects cdn
 ```
 
 ### Script to generate code for Fluent Lite
