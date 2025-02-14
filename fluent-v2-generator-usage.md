@@ -24,6 +24,7 @@ npm install
 
 ```
 npx gulp codegen --projects changes
+npx gulp codegen --projects databoundaries --preserve
 npx gulp codegen --projects locks --preserve
 npx gulp codegen --projects features --preserve
 npx gulp codegen --projects policy --preserve
