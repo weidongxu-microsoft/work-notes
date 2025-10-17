@@ -46,6 +46,7 @@ npx gulp codegen --projects compute
 
 npx gulp codegen --projects appservice
 npx gulp codegen --projects containerregistry
+npx gulp codegen --projects containerregistrytasks --preserve
 npx gulp codegen --projects containerservice
 npx gulp codegen --projects containerinstance
 npx gulp codegen --projects cosmos
