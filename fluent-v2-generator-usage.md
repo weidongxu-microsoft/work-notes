@@ -29,6 +29,7 @@ npx gulp codegen --projects locks --preserve
 npx gulp codegen --projects features --preserve
 npx gulp codegen --projects policy --preserve
 npx gulp codegen --projects subscriptions --preserve
+npx gulp codegen --projects deploymentstacks --preserve
 npx gulp codegen --projects deployments --preserve
 npx gulp codegen --projects resources --preserve
 
